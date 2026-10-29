@@ -93,21 +93,33 @@ export const IngredientsSection: React.FC = () => {
                     : 'border-slate-200/80 dark:border-navy-800'
                 }`}
               >
-                <div className="p-6">
-                  {/* Card Header: Formula & Category Badge */}
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md bg-white dark:bg-navy-950 text-blue-600 dark:text-cyan-400 border border-slate-200 dark:border-navy-800">
-                      {item.formula}
-                    </span>
-                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-navy-800 text-blue-700 dark:text-cyan-300">
-                      {item.badge}
-                    </span>
+                <div className="p-5 sm:p-6">
+                  {/* Card Header: Small Chemical Photo + Name & Formula */}
+                  <div className="flex items-start gap-3.5 mb-3.5">
+                    {item.image && (
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-navy-700 shadow-2xs shrink-0 group-hover:scale-105 transition-transform duration-300">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
+                        <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-white dark:bg-navy-950 text-blue-600 dark:text-cyan-400 border border-slate-200 dark:border-navy-800">
+                          {item.formula}
+                        </span>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-navy-800 text-blue-700 dark:text-cyan-300 truncate">
+                          {item.badge}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-display font-bold text-navy-950 dark:text-white leading-snug">
+                        {item.name}
+                      </h3>
+                    </div>
                   </div>
-
-                  {/* Chemical Name */}
-                  <h3 className="text-lg font-display font-bold text-navy-950 dark:text-white mb-2 leading-snug">
-                    {item.name}
-                  </h3>
 
                   {/* Warning Badge for Corrosive NaOH */}
                   {hasWarning && (

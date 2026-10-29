@@ -16,6 +16,7 @@ export interface Ingredient {
   id: string;
   name: string;
   formula?: string;
+  image?: string;
   category: 'surfactant' | 'alkali' | 'solvent' | 'oil' | 'builder' | 'chelant' | 'salt' | 'humectant' | 'fatty-acid';
   role: string;
   safetyWarning?: string;
@@ -129,23 +130,22 @@ export const projectContent = {
   about: {
     sectionTitle: "About & Introduction",
     tagline: "Laboratory-scale preparation, characterization, and process documentation of liquid detergent",
-    prototypingPerspective: "Chemical Prototyping is an experiential laboratory course focusing on practical formulation chemistry, stoichiometric balance, controlled sequential mixing, thermal processing, and empirical characterization. This laboratory project documents the synthesis of a small-scale liquid detergent prototype, observing surfactant-alkali interactions, magnetic vortex agitation, and key physical parameters under controlled laboratory conditions.",
     paragraphs: [
-      "Liquid detergents are cleaning formulations containing one or more surfactants, water and supporting ingredients. Surfactants help water wet a surface and loosen oily soil and dirt so it can be rinsed away. Performance depends on surfactant type and concentration, water quality, pH, viscosity and ingredient compatibility.",
-      "This was a small laboratory prototype, not a commercial product. Conducted for our Chemical Prototyping practical, laboratory documentation captures a blue mixture being stirred on a hotplate/stirrer and a small sample collected for visual inspection."
+      "Liquid detergents blend surfactants, water, and functional builders to loosen and disperse oily soil. Cleaning efficiency relies on surfactant concentration, water hardness, solution pH, and ingredient compatibility.",
+      "This prototype was prepared on a laboratory scale to observe controlled magnetic stirring, sequential reagent addition, and physical color progression during practical synthesis."
     ],
     cards: [
       {
         id: "motivation",
-        title: "Motivation & Prototyping Scope",
-        badge: "Laboratory Practical",
-        content: "Hands-on laboratory experience in formulation chemistry, precise weighing, sequential reagent addition, heat-assisted agitation, and empirical observation. Demonstrates why physical formulation needs care: excess electrolyte or incompatible additives can trigger cloudiness, phase separation, or viscosity collapse."
+        title: "Motivation & Scope",
+        badge: "Lab Practical",
+        content: "Hands-on experience in formulation chemistry, stoichiometric weighing, controlled agitation, and physical observation. Demonstrates how electrolyte levels and reagent order govern clarity and viscosity."
       },
       {
         id: "aim",
         title: "Project Aim",
         badge: "Course Scope",
-        content: "Prepare a laboratory-scale liquid detergent prototype from ingredients available in the chemical prototyping lab, and document the process, apparatus, observations and possible improvements."
+        content: "Synthesize a laboratory-scale liquid detergent prototype using laboratory reagents, documenting unit operations, apparatus, photographic observations, and safety considerations."
       }
     ],
     objectives: [
@@ -209,8 +209,9 @@ export const projectContent = {
         id: "sls",
         name: "Sodium Lauryl Sulfate (SLS)",
         formula: "NaC₁₂H₂₅SO₄",
+        image: "/images/chemicals/sls.jpg",
         category: "surfactant",
-        role: "Primary surfactant/cleaning agent; lowers surface tension, helps wet surfaces, and emulsifies/disperses oily soils into the aqueous phase.",
+        role: "Primary anionic cleaning agent; lowers surface tension, produces foam, and emulsifies oily soils.",
         badge: "Primary Surfactant",
         statusNotes: "Solid needles/powder dissolved under agitation",
         targetQuantity: "2gm",
@@ -220,8 +221,9 @@ export const projectContent = {
         id: "naoh",
         name: "Sodium Hydroxide (NaOH)",
         formula: "NaOH",
+        image: "/images/chemicals/naoh.jpg",
         category: "alkali",
-        role: "Strong alkali; used for pH adjustment and saponification of fatty substrates. Exothermic dissolution.",
+        role: "Strong caustic base; controls alkaline pH and saponifies fatty oils with exothermic dissolution.",
         badge: "Corrosive Alkali",
         safetyWarning: "Corrosive: causes severe chemical burns. Handle with strict PPE and supervision.",
         statusNotes: "Measured precisely per lab notebook protocol",
@@ -232,8 +234,9 @@ export const projectContent = {
         id: "water",
         name: "Distilled Water",
         formula: "H₂O",
+        image: "/images/chemicals/water.jpg",
         category: "solvent",
-        role: "Continuous solvent and diluent for the aqueous mixture; provides the medium for surfactant micelle formation and salt dissolution.",
+        role: "Aqueous continuous phase and primary solvent for dissolving salts and facilitating micelle formation.",
         badge: "Solvent / Diluent",
         statusNotes: "De-ionized / distilled to avoid extraneous minerals",
         targetQuantity: "20ml",
@@ -243,8 +246,9 @@ export const projectContent = {
         id: "castor-oil",
         name: "Castor Oil",
         formula: "Triglyceride matrix",
+        image: "/images/chemicals/castor-oil.jpg",
         category: "oil",
-        role: "Oil-based ingredient; serves as the fatty substrate / emollient precursor in the formulation.",
+        role: "Natural vegetable oil serving as fatty substrate and emollient precursor for emulsification.",
         badge: "Fatty Precursor",
         statusNotes: "Requires agitation for uniform emulsion",
         targetQuantity: "5ml",
@@ -252,10 +256,11 @@ export const projectContent = {
       },
       {
         id: "edta",
-        name: "EDTA (Ethylenediaminetetraacetic Acid)",
+        name: "EDTA (Chelating Agent)",
         formula: "C₁₀H₁₆N₂O₈",
+        image: "/images/chemicals/edta.jpg",
         category: "chelant",
-        role: "Chelating agent that sequesters polyvalent metal ions (Ca²⁺, Mg²⁺), mitigating the adverse impact of water hardness on foaming.",
+        role: "Sequestering agent that binds Ca²⁺ and Mg²⁺ hard water ions to protect surfactant foaming power.",
         badge: "Chelating Agent",
         statusNotes: "Prevents insoluble calcium soap precipitation",
         targetQuantity: "3ml",
@@ -265,8 +270,9 @@ export const projectContent = {
         id: "glycerol",
         name: "Glycerol / Glycerin",
         formula: "C₃H₈O₃",
+        image: "/images/chemicals/glycerol.jpg",
         category: "humectant",
-        role: "Polyol humectant and co-solvent; influences mixture texture, hand feel, and rheological viscosity profile.",
+        role: "Viscous polyol humectant and co-solvent; provides smooth hand feel and regulates formulation viscosity.",
         badge: "Humectant & Co-solvent",
         statusNotes: "Enhances moisture retention and tactile smoothness",
         targetQuantity: "5ml",
@@ -276,8 +282,9 @@ export const projectContent = {
         id: "cuso4",
         name: "Copper(II) Sulfate (CuSO₄)",
         formula: "CuSO₄ · 5H₂O",
+        image: "/images/chemicals/cuso4.jpg",
         category: "salt",
-        role: "Inorganic transition metal salt; imparts the characteristic vibrant blue colour observed throughout the prototype mixture.",
+        role: "Transition metal salt responsible for the distinctive vibrant blue color of the final detergent prototype.",
         badge: "Blue Colorant & Salt",
         statusNotes: "Verified in Lab Notebook Table 6.1 (responsible for blue appearance)",
         targetQuantity: "2gm",
@@ -287,8 +294,9 @@ export const projectContent = {
         id: "na2co3",
         name: "Sodium Carbonate (Na₂CO₃)",
         formula: "Na₂CO₃",
+        image: "/images/chemicals/na2co3.jpg",
         category: "builder",
-        role: "Alkaline builder that supports cleaning efficacy, provides buffering capacity, and assists in water conditioning.",
+        role: "Alkaline builder providing reserve alkalinity, pH buffering, and saponification support.",
         badge: "Alkaline Builder",
         statusNotes: "Auxiliary builder evaluated in laboratory literature",
         targetQuantity: "Optional",
@@ -298,8 +306,9 @@ export const projectContent = {
         id: "stearic-acid",
         name: "Stearic Acid",
         formula: "CH₃(CH₂)₁₆COOH",
+        image: "/images/chemicals/stearic-acid.jpg",
         category: "fatty-acid",
-        role: "Saturated long-chain fatty acid used in select detergent formulations; requires thermal assistance and neutralization conditions to disperse.",
+        role: "Saturated fatty acid precursor that builds creaminess and opacity under heated alkaline conditions.",
         badge: "Fatty Acid",
         statusNotes: "Higher melting point (~69°C); optional thermal precursor",
         targetQuantity: "Optional",
