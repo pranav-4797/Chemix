@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
               </a>
             ))}
             <div className="pt-4 border-t border-slate-200 dark:border-navy-800 text-xs text-slate-500 dark:text-slate-400">
-              School of Chemical Engineering • MIT AoE
+              Dept. of AI &amp; ML • Chemical Prototyping • MIT AoE
             </div>
           </div>
         </div>

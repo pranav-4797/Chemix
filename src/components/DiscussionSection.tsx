@@ -84,7 +84,7 @@ export const DiscussionSection: React.FC = () => {
               </div>
 
               <div className="pt-2 text-[11px] text-amber-700 dark:text-amber-400 italic">
-                *Requires consultation with School of Chemical Engineering faculty advisors.
+                *Requires consultation with Chemical Prototyping course faculty advisors.
               </div>
             </div>
           </div>

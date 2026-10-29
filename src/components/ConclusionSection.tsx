@@ -33,7 +33,7 @@ export const ConclusionSection: React.FC = () => {
             </p>
             <div className="pt-2 flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
               <Compass className="w-4 h-4 text-blue-500" />
-              <span>SY B.Tech Chemical Engineering Experimental Milestone | Academic Year 2026–2027</span>
+              <span>SY B.Tech AI &amp; ML • Chemical Prototyping Experimental Milestone | Academic Year 2026–2027</span>
             </div>
           </div>
         </div>

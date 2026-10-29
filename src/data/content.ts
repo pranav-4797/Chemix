@@ -1,6 +1,6 @@
 // ============================================================================
 // CONTENT DATA FILE: Preparation of Liquid Detergent
-// SY B.Tech Chemical Engineering Minor Project | MIT Academy of Engineering
+// SY B.Tech Artificial Intelligence & Machine Learning (AI & ML) | Course: Chemical Prototyping | MIT Academy of Engineering
 // All project text and data are centralized here for quick and easy editing.
 // ============================================================================
 
@@ -102,10 +102,10 @@ export const projectContent = {
   },
 
   hero: {
-    supertitle: "Chemical Engineering Laboratory Prototype",
+    supertitle: "Chemical Prototyping Laboratory Prototype",
     title: "Preparation of Liquid Detergent",
-    subtitle: "SY B.Tech Minor Project | Academic Year 2026–2027",
-    institutionLine: "School of Chemical Engineering, MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
+    subtitle: "SY B.Tech (Artificial Intelligence & Machine Learning) | Subject: Chemical Prototyping",
+    institutionLine: "Department of Artificial Intelligence & Machine Learning (AI & ML), MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
     heroImage: {
       src: "/images/fig-5-1.jpeg",
       alt: "Figure 5.1: Blue liquid detergent mixture in a beaker being agitated on a REMI magnetic hotplate stirrer at 970 RPM",
@@ -121,30 +121,31 @@ export const projectContent = {
     },
     quickStats: [
       { label: "Observed Agitation", value: "970 RPM", note: "Magnetic Stirrer Readout" },
-      { label: "Formulation Phase", value: "Lab Prototype", note: "Aqueous Surfactant Matrix" },
-      { label: "Key Surfactant", value: "SLS", note: "Anionic Cleaning Agent" }
+      { label: "Batch Scale (Table 6.1)", value: "~33 mL", note: "20ml Water + 5ml Oil + 5ml Gly" },
+      { label: "Key Colorant", value: "CuSO₄ (2g)", note: "Characteristic Blue Complex" }
     ]
   },
 
   about: {
     sectionTitle: "About & Introduction",
-    tagline: "Fundamental principles of liquid detergent formulation at laboratory prototype scale",
+    tagline: "Multidisciplinary exploration: AI & ML students bridging computational thinking with hands-on formulation chemistry",
+    aiPerspective: "As Second-Year B.Tech students specializing in Artificial Intelligence & Machine Learning (AI & ML), our curriculum features the hands-on experiential subject 'Chemical Prototyping'. This laboratory project took our team from algorithmic and digital data modeling into the physical, tactile realm of material chemistry—learning the delicate balance of surfactant interfacial kinetics, magnetic vortex agitation, precise reagent stoichiometry, and empirical physical parameter logging.",
     paragraphs: [
       "Liquid detergents are cleaning formulations containing one or more surfactants, water and supporting ingredients. Surfactants help water wet a surface and loosen oily soil and dirt so it can be rinsed away. Performance depends on surfactant type and concentration, water quality, pH, viscosity and ingredient compatibility.",
-      "This was a small laboratory prototype, not a commercial product. Laboratory documentation captures a blue mixture being stirred on a hotplate/stirrer and a small sample collected for visual inspection."
+      "This was a small laboratory prototype, not a commercial product. Conducted for our Chemical Prototyping practical, laboratory documentation captures a blue mixture being stirred on a hotplate/stirrer and a small sample collected for visual inspection."
     ],
     cards: [
       {
         id: "motivation",
-        title: "Motivation",
-        badge: "Experimental Learning",
-        content: "Practical experience in formulation, weighing, controlled mixing, heat-assisted processing and observation. Demonstrates why formulation requires meticulous care: too much electrolyte or an incompatible ingredient can trigger cloudiness, phase separation, unwanted precipitation, or abrupt viscosity changes."
+        title: "Motivation & AI × Chemistry Bridge",
+        badge: "Multidisciplinary Learning",
+        content: "Practical experience for AI & ML engineers in formulation, weighing, controlled mixing, heat-assisted processing and observation. Demonstrates why physical formulation needs care: too much electrolyte or an incompatible ingredient can cause cloudiness, separation, precipitation or viscosity change."
       },
       {
         id: "aim",
         title: "Project Aim",
-        badge: "Scope & Target",
-        content: "Prepare a laboratory-scale liquid detergent prototype from ingredients available in the chemical engineering lab, and document the process, apparatus, observations, and possible avenues for systematic improvement."
+        badge: "Course Scope",
+        content: "Prepare a laboratory-scale liquid detergent prototype from ingredients available in the chemical prototyping lab, and document the process, apparatus, observations and possible improvements."
       }
     ],
     objectives: [
@@ -152,47 +153,47 @@ export const projectContent = {
       "Prepare a uniform mixture through controlled sequential addition and magnetic stirring.",
       "Observe physical appearance, colour progression, and clarity during and after mixing.",
       "Document process stages with high-resolution laboratory photographs and a structured process flow diagram.",
-      "Identify critical chemical safety precautions, handling protocols, and verification tests required before any practical application."
+      "Identify critical chemical safety precautions, handling protocols, and verification tests needed before any practical use."
     ]
   },
 
   team: {
     sectionTitle: "Project Team",
-    subtitle: "SY B.Tech Students | School of Chemical Engineering",
+    subtitle: "SY B.Tech Students | Department of Artificial Intelligence & Machine Learning (AI & ML)",
     members: [
       {
         name: "Pranav Chopade",
         prn: "202501110025",
-        role: "SY B.Tech, School of Chemical Engineering",
+        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
         initials: "PC"
       },
       {
         name: "Rushabh Somase",
         prn: "202501110024",
-        role: "SY B.Tech, School of Chemical Engineering",
+        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
         initials: "RS"
       },
       {
         name: "Swayam Kasar",
         prn: "202501110022",
-        role: "SY B.Tech, School of Chemical Engineering",
+        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
         initials: "SK"
       },
       {
         name: "Yash Kadam",
         prn: "202501110020",
-        role: "SY B.Tech, School of Chemical Engineering",
+        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
         initials: "YK"
       },
       {
         name: "Dishant Maraskolhe",
         prn: "202501110018",
-        role: "SY B.Tech, School of Chemical Engineering",
+        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
         initials: "DM"
       },
       {
         name: "Faculty Guide",
-        role: "School of Chemical Engineering",
+        role: "Course Faculty, Chemical Prototyping | MIT AoE",
         initials: "FG",
         isGuide: true
       }
@@ -364,8 +365,8 @@ export const projectContent = {
   },
 
   theory: {
-    sectionTitle: "Chemical Engineering Principles",
-    subtitle: "Theoretical mechanisms governing liquid detergent formulation and processing",
+    sectionTitle: "Formulation & Prototyping Principles",
+    subtitle: "Theoretical mechanisms governing detergent synthesis, interfacial kinetics, and surfactant chemistry",
     topics: [
       {
         id: "surfactant-action",
@@ -474,7 +475,7 @@ export const projectContent = {
   gallery: {
     sectionTitle: "Photographic Evidence Gallery",
     subtitle: "Authentic laboratory documentation recorded during the minor project experiment",
-    note: "All photographs document actual laboratory work conducted at the School of Chemical Engineering, MIT Academy of Engineering.",
+    note: "All photographs document actual laboratory work conducted in the Chemical Prototyping laboratory by AI & ML students at MIT Academy of Engineering.",
     photos: [
       {
         id: "fig-5-1",
@@ -624,7 +625,7 @@ export const projectContent = {
     discussionPoints: [
       "The mixture developed a blue appearance and was stirred with lab equipment. Colour alone cannot confirm full dissolution or cleaning action.",
       "Ingredient addition order, solution pH, thermal history, and salt electrolyte concentration strongly govern micelle geometry, optical clarity, and macroscopic viscosity.",
-      "A rigorous chemical engineering evaluation must encompass pH measurement, microscopic inspection for undissolved particulate suspension, short-term and long-term shelf stability monitoring, and standardized cleaning efficiency tests against defined soil coupons.",
+      "A rigorous chemical prototyping evaluation must encompass pH measurement, microscopic inspection for undissolved particulate suspension, short-term and long-term shelf stability monitoring, and standardized cleaning efficiency tests against defined soil coupons.",
       "If the formulation exhibits phase separation, sedimentation, or unpredictable rheology, the chemical recipe must be re-evaluated alongside the faculty guide."
     ],
     limitations: [
@@ -712,7 +713,7 @@ export const projectContent = {
     driveUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/view?usp=sharing",
     driveEmbedUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/preview",
     localVideoUrl: "/video/liquid-detergent-prototype.mp4",
-    caption: "Laboratory presentation and prototype recording by SY B.Tech Chemical Engineering students, MIT Academy of Engineering."
+    caption: "Laboratory presentation and prototype recording by SY B.Tech Artificial Intelligence & Machine Learning (AI & ML) students for the Chemical Prototyping course, MIT Academy of Engineering."
   },
 
   references: {
@@ -720,8 +721,8 @@ export const projectContent = {
     subtitle: "Authoritative academic sources, institutional standards, and project notes",
     items: [
       {
-        title: "Laboratory Manual & Instructor-Approved Procedure for Liquid Detergent Preparation",
-        source: "School of Chemical Engineering, MIT Academy of Engineering, Alandi (D), Pune."
+        title: "Chemical Prototyping Laboratory Manual & Approved Procedure for Liquid Detergent Preparation",
+        source: "Department of Artificial Intelligence & Machine Learning / MIT Academy of Engineering, Alandi (D), Pune."
       },
       {
         title: "Safety Data Sheet (SDS): Sodium Hydroxide (NaOH)",
@@ -733,14 +734,14 @@ export const projectContent = {
       },
       {
         title: "Project Team Laboratory Photographic Archive & Process Flow Diagrams",
-        source: "SY B.Tech Minor Project Documentation, Academic Year 2026–2027."
+        source: "SY B.Tech (AI & ML) Minor Project Documentation, Academic Year 2026–2027."
       }
     ]
   },
 
   footer: {
-    course: "SY B.Tech Minor Project",
-    department: "School of Chemical Engineering",
+    course: "SY B.Tech (AI & ML) • Course: Chemical Prototyping",
+    department: "Department of Artificial Intelligence & Machine Learning (AI & ML)",
     institution: "MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
     academicYear: "Academic Year 2026–2027",
     disclaimer: "Laboratory prototype. Not for skin, dish, clothing or household use.",

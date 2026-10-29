@@ -1,7 +1,7 @@
 # Chemix — Preparation of Liquid Detergent
 
-> **Chemical Engineering Laboratory Prototype | SY B.Tech Minor Project**  
-> School of Chemical Engineering, MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India  
+> **Department of Artificial Intelligence & Machine Learning (AI & ML) | Minor Project**  
+> Course: **Chemical Prototyping** | MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India  
 > Academic Year 2026–2027
 
 [![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-000000.svg?style=flat&logo=vercel)](https://vercel.com/)
@@ -32,7 +32,7 @@ This project is an interactive, academic-grade web presentation and experimental
 - **Yash Kadam** (PRN: 202501110020)
 - **Dishant Maraskolhe** (PRN: 202501110018)
 
-*Faculty Guide*: School of Chemical Engineering (To be added)
+*Faculty Guide*: Chemical Prototyping Course Faculty, MIT AoE (To be added)
 
 ---
 

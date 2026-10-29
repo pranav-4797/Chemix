@@ -10,6 +10,18 @@ import { projectContent } from '../data/content';
 export const ObservationsSection: React.FC = () => {
   const { observations } = projectContent;
   const [rpmCount, setRpmCount] = useState(0);
+  const [batchMultiplier, setBatchMultiplier] = useState(1);
+
+  // Helper to dynamically calculate scaled lab batch
+  const scaleQuantity = (val: string, factor: number) => {
+    if (factor === 1) return val;
+    const match = val.match(/^(\d+(?:\.\d+)?)\s*([a-zA-Z]+)$/);
+    if (!match) return val;
+    const num = parseFloat(match[1]);
+    const unit = match[2];
+    const scaled = num * factor;
+    return `${Number(scaled.toFixed(1))} ${unit}`;
+  };
 
   // Animated Count-up for the 970 RPM stat card
   useEffect(() => {
@@ -178,7 +190,7 @@ export const ObservationsSection: React.FC = () => {
 
         {/* "Data to be Completed" Table */}
         <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-soft">
-          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="font-display font-bold text-lg sm:text-xl text-navy-950 dark:text-white flex items-center gap-2">
                 <FileSpreadsheet className="w-5 h-5 text-blue-600 dark:text-cyan-400" />
@@ -188,10 +200,45 @@ export const ObservationsSection: React.FC = () => {
                 Target and actual measured quantities recorded during the experimental session.
               </p>
             </div>
-            <span className="text-[11px] px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0 self-start sm:self-auto font-medium flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Verified Lab Notebook Data
-            </span>
+            
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0 font-medium flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Verified Lab Notebook Data
+              </span>
+            </div>
+          </div>
+
+          {/* Interactive Batch Scaler Toolbar (Humanised UI / UX Pro Max) */}
+          <div className="mb-6 p-4 rounded-2xl bg-blue-50/70 dark:bg-navy-950/70 border border-blue-100 dark:border-navy-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+              <span className="font-semibold text-blue-600 dark:text-cyan-400">Interactive Batch Scaler:</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                Calculated Batch Scale: <strong className="font-mono text-navy-950 dark:text-white">~{(33 * batchMultiplier).toFixed(0)} mL</strong> ({(6 * batchMultiplier).toFixed(1)}g solids)
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+              {[
+                { factor: 0.5, label: '0.5× Micro (16.5 mL)' },
+                { factor: 1, label: '1× Lab Run (33 mL)' },
+                { factor: 2, label: '2× Double (66 mL)' },
+                { factor: 5, label: '5× Scale-Up (165 mL)' },
+              ].map((b) => (
+                <button
+                  key={b.factor}
+                  type="button"
+                  onClick={() => setBatchMultiplier(b.factor)}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-150 min-h-[44px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                    batchMultiplier === b.factor
+                      ? 'bg-blue-600 text-white shadow-soft scale-105'
+                      : 'bg-white dark:bg-navy-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700'
+                  }`}
+                >
+                  {b.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Desktop Table View */}
@@ -200,8 +247,8 @@ export const ObservationsSection: React.FC = () => {
               <thead>
                 <tr className="bg-slate-50 dark:bg-navy-950 text-navy-950 dark:text-slate-200 text-xs font-semibold uppercase tracking-wider border-b border-slate-200 dark:border-navy-800">
                   <th className="py-3 px-4">Ingredient</th>
-                  <th className="py-3 px-4">Target Quantity</th>
-                  <th className="py-3 px-4">Actual Quantity</th>
+                  <th className="py-3 px-4">Target Quantity {batchMultiplier !== 1 && `(${batchMultiplier}×)`}</th>
+                  <th className="py-3 px-4">Actual Quantity {batchMultiplier !== 1 && `(${batchMultiplier}×)`}</th>
                   <th className="py-3 px-4">Remarks</th>
                 </tr>
               </thead>
@@ -212,10 +259,10 @@ export const ObservationsSection: React.FC = () => {
                       {row.ingredient}
                     </td>
                     <td className="py-3 px-4 font-bold text-blue-600 dark:text-cyan-400">
-                      {row.targetQuantity}
+                      {scaleQuantity(row.targetQuantity, batchMultiplier)}
                     </td>
                     <td className="py-3 px-4 font-bold text-blue-600 dark:text-cyan-400">
-                      {row.actualQuantity}
+                      {scaleQuantity(row.actualQuantity, batchMultiplier)}
                     </td>
                     <td className="py-3 px-4 font-sans text-slate-600 dark:text-slate-400">
                       {row.remarks}
@@ -237,8 +284,8 @@ export const ObservationsSection: React.FC = () => {
                   {row.ingredient}
                 </div>
                 <div className="text-[11px] flex justify-between font-mono bg-white dark:bg-navy-900 p-2 rounded-lg border border-slate-200/60 dark:border-navy-800">
-                  <span className="text-slate-600 dark:text-slate-300">Target: <strong className="text-blue-600 dark:text-cyan-400">{row.targetQuantity}</strong></span>
-                  <span className="text-slate-600 dark:text-slate-300">Actual: <strong className="text-blue-600 dark:text-cyan-400">{row.actualQuantity}</strong></span>
+                  <span className="text-slate-600 dark:text-slate-300">Target: <strong className="text-blue-600 dark:text-cyan-400">{scaleQuantity(row.targetQuantity, batchMultiplier)}</strong></span>
+                  <span className="text-slate-600 dark:text-slate-300">Actual: <strong className="text-blue-600 dark:text-cyan-400">{scaleQuantity(row.actualQuantity, batchMultiplier)}</strong></span>
                 </div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 italic pt-1">
                   {row.remarks}
