@@ -1,6 +1,6 @@
 # Chemix — Preparation of Liquid Detergent
 
-> **Department of Artificial Intelligence & Machine Learning (AI & ML) | Minor Project**  
+> **Chemical Prototyping Laboratory Prototype | SY B.Tech Minor Project**  
 > Course: **Chemical Prototyping** | MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India  
 > Academic Year 2026–2027
 

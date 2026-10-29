@@ -22,27 +22,27 @@ export const AboutSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Multidisciplinary AI & ML Callout Card (Humanised UX) */}
+        {/* Chemical Prototyping Laboratory Focus (Humanised UX) */}
         <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-blue-50/80 via-white to-cyan-50/60 dark:from-navy-900/90 dark:via-navy-950 dark:to-navy-900/80 border border-blue-200/90 dark:border-blue-900/50 shadow-soft-lg relative overflow-hidden">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-navy-800 text-blue-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
-                <span>Multidisciplinary Engineering Narrative</span>
+                <span>Experiential Laboratory Prototyping</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-display font-bold text-navy-950 dark:text-white">
-                From Algorithms to Beakers: AI &amp; ML in Chemical Prototyping
+                Laboratory Formulation: Chemical Prototyping in Action
               </h3>
               <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                {about.aiPerspective}
+                {about.prototypingPerspective}
               </p>
             </div>
             <div className="shrink-0 p-4 rounded-2xl bg-white dark:bg-navy-900 border border-blue-100 dark:border-navy-800 shadow-sm text-center min-w-[200px]">
               <div className="text-2xl font-mono font-extrabold text-blue-600 dark:text-cyan-400">
-                AI &amp; ML
+                MIT AoE
               </div>
               <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 mt-0.5">
-                SY B.Tech Engineers
+                SY B.Tech Minor Project
               </div>
               <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                 Subject: Chemical Prototyping

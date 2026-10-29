@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Tier: Copyright & Metadata */}
         <div className="pt-6 border-t border-navy-900 text-center text-xs text-slate-500">
-          <p>© 2026–2027 Department of Artificial Intelligence &amp; Machine Learning (AI &amp; ML), MIT Academy of Engineering, Pune. All rights reserved.</p>
+          <p>© 2026–2027 Chemical Prototyping, MIT Academy of Engineering, Pune. All rights reserved.</p>
         </div>
 
       </div>

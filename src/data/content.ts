@@ -1,6 +1,6 @@
 // ============================================================================
 // CONTENT DATA FILE: Preparation of Liquid Detergent
-// SY B.Tech Artificial Intelligence & Machine Learning (AI & ML) | Course: Chemical Prototyping | MIT Academy of Engineering
+// SY B.Tech Minor Project | Subject: Chemical Prototyping | MIT Academy of Engineering
 // All project text and data are centralized here for quick and easy editing.
 // ============================================================================
 
@@ -104,8 +104,8 @@ export const projectContent = {
   hero: {
     supertitle: "Chemical Prototyping Laboratory Prototype",
     title: "Preparation of Liquid Detergent",
-    subtitle: "SY B.Tech (Artificial Intelligence & Machine Learning) | Subject: Chemical Prototyping",
-    institutionLine: "Department of Artificial Intelligence & Machine Learning (AI & ML), MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
+    subtitle: "SY B.Tech Minor Project | Subject: Chemical Prototyping",
+    institutionLine: "MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
     heroImage: {
       src: "/images/fig-5-1.jpeg",
       alt: "Blue liquid detergent mixture in a beaker being agitated on a REMI magnetic hotplate stirrer at 970 RPM",
@@ -128,8 +128,8 @@ export const projectContent = {
 
   about: {
     sectionTitle: "About & Introduction",
-    tagline: "Multidisciplinary exploration: AI & ML students bridging computational thinking with hands-on formulation chemistry",
-    aiPerspective: "As Second-Year B.Tech students specializing in Artificial Intelligence & Machine Learning (AI & ML), our curriculum features the hands-on experiential subject 'Chemical Prototyping'. This laboratory project took our team from algorithmic and digital data modeling into the physical, tactile realm of material chemistry—learning the delicate balance of surfactant interfacial kinetics, magnetic vortex agitation, precise reagent stoichiometry, and empirical physical parameter logging.",
+    tagline: "Laboratory-scale preparation, characterization, and process documentation of liquid detergent",
+    prototypingPerspective: "Chemical Prototyping is an experiential laboratory course focusing on practical formulation chemistry, stoichiometric balance, controlled sequential mixing, thermal processing, and empirical characterization. This laboratory project documents the synthesis of a small-scale liquid detergent prototype, observing surfactant-alkali interactions, magnetic vortex agitation, and key physical parameters under controlled laboratory conditions.",
     paragraphs: [
       "Liquid detergents are cleaning formulations containing one or more surfactants, water and supporting ingredients. Surfactants help water wet a surface and loosen oily soil and dirt so it can be rinsed away. Performance depends on surfactant type and concentration, water quality, pH, viscosity and ingredient compatibility.",
       "This was a small laboratory prototype, not a commercial product. Conducted for our Chemical Prototyping practical, laboratory documentation captures a blue mixture being stirred on a hotplate/stirrer and a small sample collected for visual inspection."
@@ -137,9 +137,9 @@ export const projectContent = {
     cards: [
       {
         id: "motivation",
-        title: "Motivation & AI × Chemistry Bridge",
-        badge: "Multidisciplinary Learning",
-        content: "Practical experience for AI & ML engineers in formulation, weighing, controlled mixing, heat-assisted processing and observation. Demonstrates why physical formulation needs care: too much electrolyte or an incompatible ingredient can cause cloudiness, separation, precipitation or viscosity change."
+        title: "Motivation & Prototyping Scope",
+        badge: "Laboratory Practical",
+        content: "Hands-on laboratory experience in formulation chemistry, precise weighing, sequential reagent addition, heat-assisted agitation, and empirical observation. Demonstrates why physical formulation needs care: excess electrolyte or incompatible additives can trigger cloudiness, phase separation, or viscosity collapse."
       },
       {
         id: "aim",
@@ -159,36 +159,36 @@ export const projectContent = {
 
   team: {
     sectionTitle: "Project Team",
-    subtitle: "SY B.Tech Students | Department of Artificial Intelligence & Machine Learning (AI & ML)",
+    subtitle: "SY B.Tech Students | Subject: Chemical Prototyping",
     members: [
       {
         name: "Pranav Chopade",
         prn: "202501110025",
-        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
+        role: "SY B.Tech Student, MIT Academy of Engineering",
         initials: "PC"
       },
       {
         name: "Rushabh Somase",
         prn: "202501110024",
-        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
+        role: "SY B.Tech Student, MIT Academy of Engineering",
         initials: "RS"
       },
       {
         name: "Swayam Kasar",
         prn: "202501110022",
-        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
+        role: "SY B.Tech Student, MIT Academy of Engineering",
         initials: "SK"
       },
       {
         name: "Yash Kadam",
         prn: "202501110020",
-        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
+        role: "SY B.Tech Student, MIT Academy of Engineering",
         initials: "YK"
       },
       {
         name: "Dishant Maraskolhe",
         prn: "202501110018",
-        role: "SY B.Tech (AI & ML), Department of Artificial Intelligence & Machine Learning",
+        role: "SY B.Tech Student, MIT Academy of Engineering",
         initials: "DM"
       },
       {
@@ -475,7 +475,7 @@ export const projectContent = {
   gallery: {
     sectionTitle: "Photographic Evidence Gallery",
     subtitle: "Authentic laboratory documentation recorded during the minor project experiment",
-    note: "All photographs document actual laboratory work conducted in the Chemical Prototyping laboratory by AI & ML students at MIT Academy of Engineering.",
+    note: "All photographs document actual laboratory work conducted in the Chemical Prototyping laboratory at MIT Academy of Engineering.",
     photos: [
       {
         id: "photo-stirrer-agitation",
@@ -689,7 +689,7 @@ export const projectContent = {
     driveUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/view?usp=sharing",
     driveEmbedUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/preview",
     localVideoUrl: "/video/liquid-detergent-prototype.mp4",
-    caption: "Laboratory presentation and prototype recording by SY B.Tech Artificial Intelligence & Machine Learning (AI & ML) students for the Chemical Prototyping course, MIT Academy of Engineering."
+    caption: "Laboratory presentation and prototype recording for the Chemical Prototyping course, MIT Academy of Engineering."
   },
 
   references: {
@@ -698,7 +698,7 @@ export const projectContent = {
     items: [
       {
         title: "Chemical Prototyping Laboratory Manual & Approved Procedure for Liquid Detergent Preparation",
-        source: "Department of Artificial Intelligence & Machine Learning / MIT Academy of Engineering, Alandi (D), Pune."
+        source: "Chemical Prototyping Laboratory, MIT Academy of Engineering, Alandi (D), Pune."
       },
       {
         title: "Safety Data Sheet (SDS): Sodium Hydroxide (NaOH)",
@@ -710,14 +710,14 @@ export const projectContent = {
       },
       {
         title: "Project Team Laboratory Photographic Archive & Process Flow Diagrams",
-        source: "SY B.Tech (AI & ML) Minor Project Documentation, Academic Year 2026–2027."
+        source: "SY B.Tech Minor Project Documentation, Academic Year 2026–2027."
       }
     ]
   },
 
   footer: {
-    course: "SY B.Tech (AI & ML) • Course: Chemical Prototyping",
-    department: "Department of Artificial Intelligence & Machine Learning (AI & ML)",
+    course: "SY B.Tech Minor Project • Course: Chemical Prototyping",
+    department: "Subject: Chemical Prototyping",
     institution: "MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
     academicYear: "Academic Year 2026–2027",
     disclaimer: "Laboratory prototype. Not for skin, dish, clothing or household use.",
