@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1F3A" />
+      <stop offset="100%" stop-color="#142C4E" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A5F" />
+      <stop offset="100%" stop-color="#0F2744" />
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#38BDF8" flood-opacity="0.25" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8" />
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#F59E0B" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="900" height="620" rx="16" fill="url(#bgGrad)" stroke="#224268" stroke-width="1.5" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.06">
+    <path d="M0 50 H900 M0 100 H900 M0 150 H900 M0 200 H900 M0 250 H900 M0 300 H900 M0 350 H900 M0 400 H900 M0 450 H900 M0 500 H900 M0 550 H900" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M100 0 V620 M200 0 V620 M300 0 V620 M400 0 V620 M500 0 V620 M600 0 V620 M700 0 V620 M800 0 V620" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+
+  <!-- Title Badge -->
+  <g transform="translate(40, 30)">
+    <rect width="820" height="48" rx="8" fill="#0A182C" stroke="#2563EB" stroke-width="1" />
+    <circle cx="24" cy="24" r="6" fill="#38BDF8" />
+    <text x="40" y="29" fill="#F0F9FF" font-family="'Poppins', sans-serif" font-weight="700" font-size="16" letter-spacing="0.5">PROCESS FLOW DIAGRAM (PFD) — LIQUID DETERGENT PREPARATION</text>
+    <text x="680" y="29" fill="#94A3B8" font-family="'Inter', sans-serif" font-size="12">Doc Ref: PFD-LD-01 | Scale: Lab Proto</text>
+  </g>
+
+  <!-- STEP 1: RAW MATERIALS -->
+  <g transform="translate(40, 110)">
+    <rect width="220" height="200" rx="12" fill="url(#cardGrad)" stroke="#38BDF8" stroke-width="1.5" filter="url(#glow)"/>
+    <rect width="220" height="34" rx="12" fill="#152E50"/>
+    <text x="16" y="22" fill="#38BDF8" font-family="'Poppins', sans-serif" font-weight="600" font-size="13">STEP 01: RAW MATERIALS</text>
+    
+    <g transform="translate(16, 50)" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="12">
+      <text y="0" font-weight="600" fill="#38BDF8">• Primary Surfactant:</text>
+      <text x="12" y="18" fill="#CBD5E1">SLS (Sodium Lauryl Sulfate)</text>
+      <text y="42" font-weight="600" fill="#38BDF8">• Solvent / Diluent:</text>
+      <text x="12" y="60" fill="#CBD5E1">Distilled Water</text>
+      <text y="84" font-weight="600" fill="#38BDF8">• Builders &amp; Conditioners:</text>
+      <text x="12" y="102" fill="#94A3B8">Na₂CO₃, EDTA, MgCl₂/NaCl*</text>
+      <text x="12" y="120" fill="#94A3B8">NaOH (adj)*, Castor Oil, Glycerol</text>
+      <text x="0" y="138" font-size="10" fill="#64748B">*Quantities per instructor approval</text>
+    </g>
+  </g>
+
+  <!-- Connection: Step 1 to Step 2 -->
+  <path d="M 260 210 L 320 210" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="4 2"/>
+  <text x="268" y="200" fill="#38BDF8" font-family="'Inter', sans-serif" font-size="10" font-weight="500">Add order</text>
+
+  <!-- STEP 2: CONTROLLED MIXING (MAGNETIC STIRRER) -->
+  <g transform="translate(325, 110)">
+    <rect width="250" height="200" rx="12" fill="url(#cardGrad)" stroke="#2563EB" stroke-width="1.5" filter="url(#glow)"/>
+    <rect width="250" height="34" rx="12" fill="#122B4D"/>
+    <text x="16" y="22" fill="#60A5FA" font-family="'Poppins', sans-serif" font-weight="600" font-size="13">STEP 02: CONTROLLED MIXING</text>
+    
+    <!-- Stirrer Graphic -->
+    <g transform="translate(18, 48)">
+      <rect width="214" height="66" rx="8" fill="#0B1A2E" stroke="#1D4ED8" stroke-width="1" />
+      <circle cx="28" cy="33" r="14" fill="#1E3A8A" stroke="#38BDF8" stroke-width="1.5" />
+      <path d="M 24 33 Q 28 26 32 33" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+      <text x="50" y="28" fill="#F8FAFC" font-family="'Poppins', sans-serif" font-weight="700" font-size="13">Magnetic Stirrer</text>
+      <rect x="50" y="34" width="76" height="20" rx="4" fill="#000000" stroke="#EF4444" stroke-width="1"/>
+      <text x="58" y="48" fill="#EF4444" font-family="'Courier New', monospace" font-weight="bold" font-size="13">970 RPM</text>
+      <text x="132" y="48" fill="#94A3B8" font-family="'Inter', sans-serif" font-size="10">(Observed)</text>
+    </g>
+
+    <g transform="translate(18, 126)" fill="#CBD5E1" font-family="'Inter', sans-serif" font-size="11">
+      <text y="0">• Gradual addition to limit foam</text>
+      <text y="18">• Uniform contact &amp; dispersion</text>
+      <text y="36">• Vortex formed during agitation</text>
+      <text y="54" fill="#38BDF8">• Observed: Blue mixture formed</text>
+    </g>
+  </g>
+
+  <!-- Connection: Step 2 to Step 3 -->
+  <path d="M 575 210 L 635 210" stroke="#F59E0B" stroke-width="2.5" marker-end="url(#arrowAmber)" stroke-dasharray="4 2"/>
+  <text x="580" y="200" fill="#F59E0B" font-family="'Inter', sans-serif" font-size="10" font-weight="500">If required</text>
+
+  <!-- STEP 3: HEATING (OPTIONAL) -->
+  <g transform="translate(640, 110)">
+    <rect width="220" height="200" rx="12" fill="url(#cardGrad)" stroke="#F59E0B" stroke-width="1.5"/>
+    <rect width="220" height="34" rx="12" fill="#2D2109"/>
+    <text x="16" y="22" fill="#FBBF24" font-family="'Poppins', sans-serif" font-weight="600" font-size="13">STEP 03: HEATING (OPTIONAL)</text>
+    
+    <g transform="translate(16, 50)" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="12">
+      <text y="0" font-weight="600" fill="#FBBF24">• Temperature Control:</text>
+      <text x="12" y="18" fill="#CBD5E1">Controlled heat assist</text>
+      <text y="42" font-weight="600" fill="#FBBF24">• Aids Dissolution:</text>
+      <text x="12" y="60" fill="#CBD5E1">Stearic acid / solids</text>
+      <text y="84" font-weight="600" fill="#EF4444">⚠ Safety Protocol:</text>
+      <text x="12" y="102" fill="#FCA5A5">Never leave unattended</text>
+      <text x="12" y="120" fill="#FCA5A5">Do not heat sealed vessel</text>
+    </g>
+  </g>
+
+  <!-- Connection: Step 3 to Step 4 (downwards & left) -->
+  <path d="M 750 310 L 750 360 L 585 360 L 585 390" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="640" y="352" fill="#94A3B8" font-family="'Inter', sans-serif" font-size="10">Cool to room temp</text>
+
+  <!-- STEP 4: COOLING & FILTRATION -->
+  <g transform="translate(370, 395)">
+    <rect width="260" height="185" rx="12" fill="url(#cardGrad)" stroke="#38BDF8" stroke-width="1.5" filter="url(#glow)"/>
+    <rect width="260" height="34" rx="12" fill="#132F52"/>
+    <text x="16" y="22" fill="#38BDF8" font-family="'Poppins', sans-serif" font-weight="600" font-size="13">STEP 04: COOLING &amp; FILTRATION</text>
+    
+    <g transform="translate(16, 50)" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="12">
+      <text y="0" font-weight="600" fill="#38BDF8">• Conditioning:</text>
+      <text x="12" y="18" fill="#CBD5E1">Equilibrate to lab ambient temp</text>
+      <text y="42" font-weight="600" fill="#38BDF8">• Selective Filtration:</text>
+      <text x="12" y="60" fill="#CBD5E1">Only if undissolved material</text>
+      <text x="12" y="78" fill="#94A3B8">remains &amp; method dictates</text>
+      <text y="102" font-weight="600" fill="#10B981">• Visual Clarity Check:</text>
+      <text x="12" y="120" fill="#6EE7B7">Observe for cloudiness/sediment</text>
+    </g>
+  </g>
+
+  <!-- Connection: Step 4 to Step 5 -->
+  <path d="M 370 485 L 270 485" stroke="#10B981" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 5: COLLECTION & LABELLING -->
+  <g transform="translate(40, 395)">
+    <rect width="220" height="185" rx="12" fill="url(#cardGrad)" stroke="#10B981" stroke-width="1.5" filter="url(#glow)"/>
+    <rect width="220" height="34" rx="12" fill="#0A3022"/>
+    <text x="16" y="22" fill="#34D399" font-family="'Poppins', sans-serif" font-weight="600" font-size="13">STEP 05: COLLECTION &amp; LOG</text>
+    
+    <g transform="translate(16, 50)" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="12">
+      <text y="0" font-weight="600" fill="#34D399">• Final Container:</text>
+      <text x="12" y="18" fill="#CBD5E1">Compatible glass / HDPE bottle</text>
+      <text y="42" font-weight="600" fill="#34D399">• Labelling:</text>
+      <text x="12" y="60" fill="#CBD5E1">Date, Prototype ID, Hazard badge</text>
+      <text y="84" font-weight="600" fill="#34D399">• Data Logs Needed:</text>
+      <text x="12" y="102" fill="#FBBF24">pH, Final Volume, Density (TBD)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Legend / Disclaimer Bar -->
+  <g transform="translate(40, 588)">
+    <text x="0" y="14" fill="#64748B" font-family="'Inter', sans-serif" font-size="11">
+      Note: Educational minor project prototype. Operating values (e.g. 970 RPM) reflect recorded lab runs, not optimized commercial parameters.
+    </text>
+  </g>
+</svg>
