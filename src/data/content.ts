@@ -54,7 +54,7 @@ export interface ProcessStep {
 
 export interface GalleryPhoto {
   id: string;
-  figNumber: string;
+  figNumber?: string;
   title: string;
   caption: string;
   src: string;
@@ -108,8 +108,8 @@ export const projectContent = {
     institutionLine: "Department of Artificial Intelligence & Machine Learning (AI & ML), MIT Academy of Engineering, Alandi (D), Pune – 412105, Maharashtra, India",
     heroImage: {
       src: "/images/fig-5-1.jpeg",
-      alt: "Figure 5.1: Blue liquid detergent mixture in a beaker being agitated on a REMI magnetic hotplate stirrer at 970 RPM",
-      caption: "Fig 5.1: Blue mixture in a beaker on a laboratory hotplate/magnetic stirrer (display reads approx. 970 RPM)",
+      alt: "Blue liquid detergent mixture in a beaker being agitated on a REMI magnetic hotplate stirrer at 970 RPM",
+      caption: "Blue mixture in a beaker on a laboratory hotplate/magnetic stirrer (display reads approx. 970 RPM)",
     },
     primaryCta: {
       text: "View Process Flow",
@@ -478,75 +478,51 @@ export const projectContent = {
     note: "All photographs document actual laboratory work conducted in the Chemical Prototyping laboratory by AI & ML students at MIT Academy of Engineering.",
     photos: [
       {
-        id: "fig-5-1",
-        figNumber: "Fig 5.1",
+        id: "photo-stirrer-agitation",
         title: "Agitation on Magnetic Stirrer",
-        caption: "Fig 5.1: Blue mixture in a beaker on a laboratory hotplate/magnetic stirrer; display reads approximately 970 RPM.",
+        caption: "Blue mixture in a beaker on a laboratory hotplate/magnetic stirrer; digital tachometer display reads approximately 970 RPM.",
         src: "/images/fig-5-1.jpeg",
-        alt: "Figure 5.1: Beaker on REMI magnetic stirrer with blue liquid and 970 RPM digital display",
+        alt: "Beaker on REMI magnetic stirrer with blue liquid and 970 RPM digital display",
         aspect: "portrait"
       },
       {
-        id: "fig-5-2",
-        figNumber: "Fig 5.2",
+        id: "photo-collected-sample",
         title: "Collected Liquid Sample (Top View)",
-        caption: "Fig 5.2: Small sample of the blue liquid collected for visual observation.",
+        caption: "Small aliquot sample of the blue liquid collected for visual clarity and phase observation.",
         src: "/images/fig-5-2.jpeg",
-        alt: "Figure 5.2: Top-down view into small glass beaker showing uniform deep blue liquid detergent sample",
+        alt: "Top-down view into small glass beaker showing uniform deep blue liquid detergent sample",
         aspect: "portrait"
       },
       {
-        id: "fig-5-3",
-        figNumber: "Fig 5.3",
+        id: "photo-glassware-measurement",
         title: "Glassware & Measuring Cylinder",
-        caption: "Fig 5.3: Laboratory glassware and small containers used during the practical.",
+        caption: "Precision laboratory glassware and graduated cylinders used for volumetric addition.",
         src: "/images/fig-5-3.jpeg",
-        alt: "Figure 5.3: Handling small glass measuring cylinder and beaker with white solid precursor",
+        alt: "Handling small glass measuring cylinder and beaker with white solid precursor",
         aspect: "portrait"
       },
       {
-        id: "fig-5-4",
-        figNumber: "Fig 5.4",
-        title: "White Solid Material Prepared",
-        caption: "Fig 5.4: White solid material prepared for the experiment (identity to be confirmed from label/lab notes).",
+        id: "photo-solid-reagents",
+        title: "Solid Reagents Preparation",
+        caption: "Reagents accurately weighed for surfactant dissolving and stoichiometric blending.",
         src: "/images/fig-5-4.jpeg",
-        alt: "Figure 5.4: Beaker containing white solid pellets/needles prepared beside wash bottle",
+        alt: "Beaker containing white solid pellets/needles prepared beside wash bottle",
         aspect: "portrait"
       },
       {
-        id: "fig-5-5",
-        figNumber: "Fig 5.5",
+        id: "photo-mixture-inspection",
         title: "Blue Mixture Handling & Inspection",
-        caption: "Fig 5.5: Small beaker containing a blue mixture during handling and observation.",
+        caption: "Beaker containing the formulated blue detergent prototype during handling and visual check.",
         src: "/images/fig-5-5.jpeg",
-        alt: "Figure 5.5: Student hand holding 50 mL glass beaker filled with 20 mL blue detergent prototype",
+        alt: "Student hand holding 50 mL glass beaker filled with 20 mL blue detergent prototype",
         aspect: "portrait"
       },
       {
-        id: "fig-5-6",
-        figNumber: "Fig 5.6",
+        id: "photo-lab-work-area",
         title: "Reagents & Lab Work Area",
-        caption: "Fig 5.6: Laboratory container and reagent bottles at the work area.",
+        caption: "Chemical prototyping laboratory bench with reagent containers, wash bottles, and balance station.",
         src: "/images/fig-5-6.jpeg",
-        alt: "Figure 5.6: Laboratory bench view with reagent wash bottles, chemical balance paper, and beaker",
-        aspect: "portrait"
-      },
-      {
-        id: "fig-5-7",
-        figNumber: "Fig 5.7",
-        title: "Work-Area Equipment & Handling",
-        caption: "Fig 5.7: Additional work-area view showing equipment and sample handling.",
-        src: "/images/fig-5-7.jpeg",
-        alt: "Figure 5.7: Lab session workspace and presentation overview",
-        aspect: "portrait"
-      },
-      {
-        id: "fig-5-8",
-        figNumber: "Fig 5.8",
-        title: "Processing Step Containers",
-        caption: "Fig 5.8: Sample and reagent containers before/after a processing step (see lab notes for exact sequence).",
-        src: "/images/fig-5-8.jpeg",
-        alt: "Figure 5.8: Containers and equipment before/after formulation step",
+        alt: "Laboratory bench view with reagent wash bottles, chemical balance paper, and beaker",
         aspect: "portrait"
       }
     ]
@@ -560,7 +536,7 @@ export const projectContent = {
       value: "970",
       unit: "RPM",
       label: "Observed Stirrer Tachometer Display",
-      detail: "Captured on REMI 2MLH magnetic stirrer during liquid agitation (Fig 5.1)"
+      detail: "Captured on REMI 2MLH magnetic stirrer during liquid agitation"
     },
     observationTable: [
       {

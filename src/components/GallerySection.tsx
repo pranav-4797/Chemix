@@ -89,13 +89,13 @@ export const GallerySection: React.FC = () => {
           </div>
         </div>
 
-        {/* Responsive Grid / Masonry Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Responsive Grid - 6 Authentic Photos (Balanced 3 columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {gallery.photos.map((photo, index) => (
             <div
               key={photo.id}
               onClick={() => openLightbox(index)}
-              className="group cursor-pointer rounded-2xl overflow-hidden bg-slate-50 dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-soft hover:shadow-soft-lg transition-all duration-300 flex flex-col justify-between"
+              className="group cursor-pointer rounded-2xl overflow-hidden bg-slate-50 dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Photo Image Frame */}
               <div className="relative aspect-[3/4] overflow-hidden bg-slate-900">
@@ -105,11 +105,6 @@ export const GallerySection: React.FC = () => {
                   loading="lazy"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-
-                {/* Figure badge overlay */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-navy-950/80 backdrop-blur-xs text-cyan-300 text-xs font-mono font-bold shadow">
-                  {photo.figNumber}
-                </div>
 
                 {/* Hover overlay hint */}
                 <div className="absolute inset-0 bg-blue-900/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -122,7 +117,7 @@ export const GallerySection: React.FC = () => {
               {/* Photo Caption & Info */}
               <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-sm text-navy-950 dark:text-white leading-snug">
+                  <h3 className="font-display font-bold text-sm sm:text-base text-navy-950 dark:text-white leading-snug">
                     {photo.title}
                   </h3>
                   <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 mt-1 leading-relaxed">
@@ -152,10 +147,7 @@ export const GallerySection: React.FC = () => {
           {/* Lightbox Top Bar */}
           <div className="flex items-center justify-between text-white max-w-6xl mx-auto w-full pt-2">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-lg bg-blue-600 text-xs font-mono font-bold">
-                {currentPhoto.figNumber}
-              </span>
-              <span className="text-sm font-semibold truncate hidden sm:inline">
+              <span className="text-sm sm:text-base font-semibold truncate text-white">
                 {currentPhoto.title}
               </span>
             </div>

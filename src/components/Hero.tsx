@@ -110,9 +110,9 @@ export const Hero: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Figure Badge */}
+                  {/* Prototype Badge */}
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-md bg-blue-600/90 text-white text-xs font-bold uppercase tracking-wider shadow">
-                    Fig 5.1
+                    Live Prototype
                   </div>
 
                   {/* Bottom Gradient Overlay & Caption */}
