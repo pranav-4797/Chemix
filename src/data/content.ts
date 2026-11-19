@@ -147,31 +147,31 @@ export const projectContent = {
 
   about: {
     sectionTitle: "About & Introduction",
-    tagline: "Laboratory-scale preparation, characterization, and process documentation of liquid detergent",
+    tagline: "Laboratory-scale preparation and process documentation of a liquid detergent prototype",
     paragraphs: [
-      "Liquid detergents blend surfactants, water, and functional builders to loosen and disperse oily soil. Cleaning efficiency relies on surfactant concentration, water hardness, solution pH, and ingredient compatibility.",
-      "This prototype was prepared on a laboratory scale to observe controlled magnetic stirring, sequential reagent addition, and physical color progression during practical synthesis."
+      "Liquid detergents blend surfactants, water, and functional builders to detach and suspend oily soils. Performance depends on surfactant concentration, water hardness, pH, and ingredient compatibility.",
+      "This prototype was prepared on a bench scale to observe magnetic agitation (~970 RPM), sequential reagent addition, and qualitative physical characteristics."
     ],
     cards: [
       {
         id: "motivation",
         title: "Motivation & Scope",
         badge: "Lab Practical",
-        content: "Hands-on experience in formulation chemistry, stoichiometric weighing, controlled agitation, and physical observation. Demonstrates how electrolyte levels and reagent order govern clarity and viscosity."
+        content: "Practical experience in formulation chemistry, weighing, and controlled agitation. Demonstrates how electrolyte balance and reagent sequence govern clarity and viscosity."
       },
       {
         id: "aim",
         title: "Project Aim",
         badge: "Course Scope",
-        content: "Synthesize a laboratory-scale liquid detergent prototype using laboratory reagents, documenting unit operations, apparatus, photographic observations, and safety considerations."
+        content: "Prepare a laboratory liquid detergent prototype from bench chemicals, documenting unit operations, apparatus, photographic observations, and safety measures."
       }
     ],
     objectives: [
-      "Identify the main chemical ingredients and lab apparatus used in liquid detergent synthesis.",
-      "Prepare a uniform mixture through controlled sequential addition and magnetic stirring.",
-      "Observe physical appearance, colour progression, and clarity during and after mixing.",
-      "Document process stages with high-resolution laboratory photographs and a structured process flow diagram.",
-      "Identify critical chemical safety precautions, handling protocols, and verification tests needed before any practical use."
+      "Identify key chemical ingredients and laboratory apparatus.",
+      "Execute controlled sequential addition and magnetic stirring.",
+      "Record physical appearance, color progression, and clarity.",
+      "Document unit operations with photographs and a process flow diagram.",
+      "Establish essential laboratory safety protocols and follow-up tests."
     ]
   },
 
@@ -228,7 +228,7 @@ export const projectContent = {
   ingredients: {
     sectionTitle: "Chemical Ingredients",
     subtitle: "Component functions, chemical roles, and laboratory safety classifications",
-    infoNote: "Quantities confirmed from Lab Notebook Table 6.1 ('Suggested data table to complete from lab notebook'): 2g SLS, 2g NaOH, 20ml Distilled water, 5ml Castor oil, 3ml EDTA, 5ml Glycerol, and 2g CuSO₄ (which imparts the vibrant blue color). Total liquid volume ~33ml.",
+    infoNote: "Batch formulation from Lab Notebook Table 6.1 (~33 mL total liquid): 2g SLS, 2g NaOH, 20mL water, 5mL castor oil, 3mL EDTA, 5mL glycerol, and 2g CuSO₄ (blue colorant).",
     items: [
       {
         id: "sls",
@@ -236,7 +236,7 @@ export const projectContent = {
         formula: "NaC₁₂H₂₅SO₄",
         image: "/images/chemicals/sls.jpg",
         category: "surfactant",
-        role: "Primary anionic cleaning agent; lowers surface tension, produces foam, and emulsifies oily soils.",
+        role: "Primary anionic surfactant; lowers surface tension and encapsulates oily dirt into micelles.",
         badge: "Primary Surfactant",
         statusNotes: "Solid needles/powder dissolved under agitation",
         targetQuantity: "2gm",
@@ -248,9 +248,9 @@ export const projectContent = {
         formula: "NaOH",
         image: "/images/chemicals/naoh.jpg",
         category: "alkali",
-        role: "Strong caustic base; controls alkaline pH and saponifies fatty oils with exothermic dissolution.",
+        role: "Caustic base; provides alkaline pH control and saponifies fatty precursors. Corrosive.",
         badge: "Corrosive Alkali",
-        safetyWarning: "Corrosive: causes severe chemical burns. Handle with strict PPE and supervision.",
+        safetyWarning: "Corrosive: causes severe chemical burns. Handle with strict PPE.",
         statusNotes: "Measured precisely per lab notebook protocol",
         targetQuantity: "2gm",
         actualQuantity: "2gm"
@@ -261,9 +261,9 @@ export const projectContent = {
         formula: "H₂O",
         image: "/images/chemicals/water.jpg",
         category: "solvent",
-        role: "Aqueous continuous phase and primary solvent for dissolving salts and facilitating micelle formation.",
+        role: "Aqueous continuous phase and solvent for dissolving reagents and forming micelles.",
         badge: "Solvent / Diluent",
-        statusNotes: "De-ionized / distilled to avoid extraneous minerals",
+        statusNotes: "De-ionized to avoid extraneous minerals",
         targetQuantity: "20ml",
         actualQuantity: "20ml"
       },
@@ -273,7 +273,7 @@ export const projectContent = {
         formula: "Triglyceride matrix",
         image: "/images/chemicals/castor-oil.jpg",
         category: "oil",
-        role: "Natural vegetable oil serving as fatty substrate and emollient precursor for emulsification.",
+        role: "Vegetable oil serving as fatty substrate and emollient precursor for emulsification.",
         badge: "Fatty Precursor",
         statusNotes: "Requires agitation for uniform emulsion",
         targetQuantity: "5ml",
@@ -285,7 +285,7 @@ export const projectContent = {
         formula: "C₁₀H₁₆N₂O₈",
         image: "/images/chemicals/edta.jpg",
         category: "chelant",
-        role: "Sequestering agent that binds Ca²⁺ and Mg²⁺ hard water ions to protect surfactant foaming power.",
+        role: "Chelating agent; binds Ca²⁺ and Mg²⁺ hard water ions to protect surfactant foaming power.",
         badge: "Chelating Agent",
         statusNotes: "Prevents insoluble calcium soap precipitation",
         targetQuantity: "3ml",
@@ -297,7 +297,7 @@ export const projectContent = {
         formula: "C₃H₈O₃",
         image: "/images/chemicals/glycerol.jpg",
         category: "humectant",
-        role: "Viscous polyol humectant and co-solvent; provides smooth hand feel and regulates formulation viscosity.",
+        role: "Polyol humectant and co-solvent; provides smooth hand feel and regulates viscosity.",
         badge: "Humectant & Co-solvent",
         statusNotes: "Enhances moisture retention and tactile smoothness",
         targetQuantity: "5ml",
@@ -309,9 +309,9 @@ export const projectContent = {
         formula: "CuSO₄ · 5H₂O",
         image: "/images/chemicals/cuso4.jpg",
         category: "salt",
-        role: "Transition metal salt responsible for the distinctive vibrant blue color of the final detergent prototype.",
+        role: "Transition metal salt imparting the signature vibrant blue color to the prototype.",
         badge: "Blue Colorant & Salt",
-        statusNotes: "Verified in Lab Notebook Table 6.1 (responsible for blue appearance)",
+        statusNotes: "Confirmed in Table 6.1 (responsible for blue appearance)",
         targetQuantity: "2gm",
         actualQuantity: "2gm"
       },
@@ -321,7 +321,7 @@ export const projectContent = {
         formula: "Na₂CO₃",
         image: "/images/chemicals/na2co3.jpg",
         category: "builder",
-        role: "Alkaline builder providing reserve alkalinity, pH buffering, and saponification support.",
+        role: "Alkaline builder providing reserve buffering and saponification support. (Optional in this run).",
         badge: "Alkaline Builder",
         statusNotes: "Auxiliary builder evaluated in laboratory literature",
         targetQuantity: "Optional",
@@ -333,7 +333,7 @@ export const projectContent = {
         formula: "CH₃(CH₂)₁₆COOH",
         image: "/images/chemicals/stearic-acid.jpg",
         category: "fatty-acid",
-        role: "Saturated fatty acid precursor that builds creaminess and opacity under heated alkaline conditions.",
+        role: "Saturated fatty acid for creaminess and opacity under alkaline heating. (Optional in this run).",
         badge: "Fatty Acid",
         statusNotes: "Higher melting point (~69°C); optional thermal precursor",
         targetQuantity: "Optional",
@@ -399,55 +399,51 @@ export const projectContent = {
   },
 
   theory: {
-    sectionTitle: "Formulation & Prototyping Principles",
-    subtitle: "Theoretical mechanisms governing detergent synthesis, interfacial kinetics, and surfactant chemistry",
+    sectionTitle: "Formulation Principles",
+    subtitle: "Mechanisms governing surfactant action, builder alkalinity, and mixing kinetics",
     topics: [
       {
         id: "surfactant-action",
         title: "Surfactant Action & Micelle Formation",
-        subtitle: "Interfacial tension reduction and soil dispersion",
-        summary: "SLS possesses an amphiphilic architecture: a hydrophilic sulfate head and a lipophilic hydrocarbon tail that synergistically remove oily dirt.",
+        subtitle: "Surface tension reduction & soil dispersion",
+        summary: "SLS has an amphiphilic structure: a hydrophilic sulfate head and lipophilic hydrocarbon tail that synergistically remove oily dirt.",
         points: [
-          "Lowers interfacial surface tension between aqueous wash liquor and hydrophobic oily soils.",
+          "Lowers interfacial surface tension between water and hydrophobic oily soils.",
           "Self-assembles into spherical micelles once Critical Micelle Concentration (CMC) is reached.",
-          "Lipophilic cores trap greasy soil while hydrophilic heads keep particles suspended for clean rinsing.",
-          "Performance is governed by surfactant concentration, thermal history, and electrolyte balance."
+          "Lipophilic core traps oily soil while hydrophilic heads keep particles suspended for rinsing."
         ]
       },
       {
         id: "builders-chelants",
         title: "Builders & Chelating Agents",
-        subtitle: "Alkalinity regulation and polyvalent ion sequestration",
-        summary: "Sodium carbonate (Na₂CO₃) and EDTA condition the wash water to maximize surfactant cleaning potential.",
+        subtitle: "Water conditioning & ion sequestration",
+        summary: "Sodium carbonate (Na₂CO₃) and EDTA condition the wash liquor to maximize cleaning potential.",
         points: [
-          "Na₂CO₃ supplies reserve alkalinity to neutralize acidic dirt and saponify free fatty acids.",
+          "Na₂CO₃ supplies reserve alkalinity to neutralize acidic dirt and saponify fatty acids.",
           "EDTA forms stable hexadentate complexes with hard water ions (Ca²⁺, Mg²⁺).",
-          "Prevents insoluble calcium curd/scum precipitation that would otherwise deactivate SLS.",
-          "Proper stoichiometry avoids excessive ionic strength that could destabilize the colloidal suspension."
+          "Prevents insoluble calcium curd/scum precipitation from deactivating SLS."
         ]
       },
       {
         id: "ph-compatibility",
         title: "pH Control & Compatibility",
-        subtitle: "Thermodynamic stability and skin contact hazard considerations",
-        summary: "Chemical compatibility dictates whether ingredients remain transparently dissolved or separate into cloudy phases.",
+        subtitle: "Phase stability & safety considerations",
+        summary: "Ingredient compatibility dictates whether components stay transparently dissolved or separate into cloudy phases.",
         points: [
-          "NaOH is strongly caustic; precise addition is required to regulate saponification without skin hazards.",
-          "Reagent order, temperature, and ionic strength dictate isotropic clarity vs turbid phase separation.",
-          "Electrolyte salts (CuSO₄, NaCl) modulate micelle repulsion, tuning solution viscosity.",
-          "Lipid phases (Castor oil, Stearic acid) require strict thermal and alkaline windows for uniform dispersion."
+          "NaOH provides alkaline pH control for saponification; requires precise handling.",
+          "Reagent addition order and temperature govern clarity vs phase separation.",
+          "Electrolyte salts (CuSO₄) modulate micelle repulsion and solution viscosity."
         ]
       },
       {
         id: "mixing-heating",
         title: "Agitation Kinetics & Heat Transfer",
-        subtitle: "Hydrodynamic shear and controlled thermal dissolution",
-        summary: "Continuous stirring accelerates dissolution kinetics by reducing stagnant boundary layers around solid reagents.",
+        subtitle: "Vortex mixing & thermal dissolution",
+        summary: "Continuous stirring accelerates dissolution by reducing stagnant boundary layers around solid reagents.",
         points: [
-          "Magnetic stirrer recorded approximately 970 RPM, providing stable vortex mixing without splashing.",
-          "Gentle addition sequence prevents air entrainment and persistent excess micro-foam.",
-          "Controlled thermal assistance facilitates dissolution of solid precursors without boiling.",
-          "Operating parameters recorded represent verified bench settings for this laboratory run."
+          "Magnetic stirrer recorded ~970 RPM, generating a stable vortex without splashing.",
+          "Gradual reagent addition prevents excessive air entrainment and persistent foam.",
+          "Controlled heating accelerates precursor dissolution without thermal degradation."
         ]
       }
     ]
@@ -455,7 +451,7 @@ export const projectContent = {
 
   process: {
     sectionTitle: "Process & Methodology",
-    subtitle: "Laboratory batch procedure, unit operations, and process-flow architecture",
+    subtitle: "Unit operations and sequential execution of the laboratory batch",
     diagramImage: "/images/img-1.svg",
     diagramAlt: "Process Flow Diagram showing sequential stages from raw materials to final collection",
     processVideo: "/video/process-video.mp4",
@@ -470,39 +466,39 @@ export const projectContent = {
       {
         stepNumber: 1,
         title: "Preparation & Safety Setup",
-        shortDesc: "PPE check, workstation clearing, and tare balance setup",
-        fullDesc: "Don splash goggles, lab coat, and nitrile gloves. Inspect glassware for micro-cracks, clear workspace, review chemical safety protocols, and measure distilled water into the reaction beaker.",
-        keyAction: "Equip PPE, tare analytical balance, and set up magnetic hotplate"
+        shortDesc: "PPE check and equipment setup",
+        fullDesc: "Don splash goggles, lab coat, and nitrile gloves. Inspect glassware, clear bench, and measure 20 mL distilled water into the reaction beaker.",
+        keyAction: "Equip PPE, tare balance, and set up magnetic hotplate"
       },
       {
         stepNumber: 2,
         title: "Controlled Reagent Mixing",
-        shortDesc: "Gradual stoichiometric addition under vortex stirring (~970 RPM)",
-        fullDesc: "Sequentially introduce SLS, NaOH, castor oil, and EDTA into the vortex. Maintain magnetic agitation at ~970 RPM to ensure uniform dispersion and avoid excessive aeration.",
+        shortDesc: "Vortex addition (~970 RPM)",
+        fullDesc: "Sequentially introduce SLS (2g), NaOH (2g), castor oil (5mL), EDTA (3mL), glycerol (5mL), and CuSO₄ (2g) under steady ~970 RPM stirring.",
         rpm: "~970 RPM",
-        keyAction: "Gentle sequential dosing to limit foam and facilitate dissolution"
+        keyAction: "Gentle sequential dosing to avoid excess foam"
       },
       {
         stepNumber: 3,
         title: "Controlled Thermal Assist",
-        shortDesc: "Gentle heat regulation if dissolving fatty acids or builders",
-        fullDesc: "When required, apply mild thermal input via the hotplate with continuous temperature monitoring. Never heat sealed vessels and avoid boiling.",
-        caution: "Vented glassware only; do not boil or heat unattended",
+        shortDesc: "Gentle heating if required",
+        fullDesc: "Apply mild, monitored heat via the hotplate if needed to dissolve fatty precursors. Never heat sealed vessels or allow boiling.",
+        caution: "Vented glassware only; monitor temperature continuously",
         keyAction: "Maintain controlled heat profile with thermometer verification"
       },
       {
         stepNumber: 4,
         title: "Stabilization & Filtration",
-        shortDesc: "Ambient cooling and gravity filtration for clarity",
-        fullDesc: "Allow the formulation to equilibrate to room temperature. Pass through qualitative filter medium if undissolved micro-particles remain.",
-        keyAction: "Cool to ambient room conditions and assess optical clarity"
+        shortDesc: "Ambient cooling and filtration",
+        fullDesc: "Allow the mixture to cool to room temperature. Pass through filter paper if undissolved micro-particles remain.",
+        keyAction: "Cool to room temperature and check optical clarity"
       },
       {
         stepNumber: 5,
         title: "Sample Collection & Labelling",
-        shortDesc: "Aliquoting into prototype bottle and parameter logging",
-        fullDesc: "Transfer aliquots into chemical-resistant sample bottles. Affix hazard symbols, batch date, and student team tags, logging color, clarity, and physical appearance.",
-        keyAction: "Seal container, affix GHS hazard label, and log notebook data"
+        shortDesc: "Aliquoting and parameter logging",
+        fullDesc: "Transfer the homogeneous blue liquid into a sealed sample bottle with hazard labels, date, and team identifiers.",
+        keyAction: "Seal container, affix GHS label, and log notebook data"
       }
     ]
   },
@@ -631,73 +627,71 @@ export const projectContent = {
   },
 
   discussion: {
-    sectionTitle: "Discussion & Critical Limitations",
-    subtitle: "Scientific appraisal of the prototype and technical boundary conditions",
+    sectionTitle: "Discussion & Limitations",
+    subtitle: "Scientific appraisal and technical boundary conditions",
     discussionPoints: [
-      "The mixture developed a blue appearance and was stirred with lab equipment. Colour alone cannot confirm full dissolution or cleaning action.",
-      "Ingredient addition order, solution pH, thermal history, and salt electrolyte concentration strongly govern micelle geometry, optical clarity, and macroscopic viscosity.",
-      "A rigorous chemical prototyping evaluation must encompass pH measurement, microscopic inspection for undissolved particulate suspension, short-term and long-term shelf stability monitoring, and standardized cleaning efficiency tests against defined soil coupons.",
-      "If the formulation exhibits phase separation, sedimentation, or unpredictable rheology, the chemical recipe must be re-evaluated alongside the faculty guide."
+      "The formulation developed a characteristic blue color and was blended under ~970 RPM magnetic stirring. Color alone does not verify detergent performance.",
+      "Ingredient addition order, solution pH, and electrolyte balance directly control micelle formation, optical clarity, and macroscopic viscosity.",
+      "Comprehensive evaluation requires calibrated pH testing, rotational viscosity measurement, shelf-stability logging, and standardized fabric stain removal trials."
     ],
     limitations: [
-      "Exact reagent quantities and chronological order of addition were not recorded in the available log.",
-      "Heating temperature and agitation duration were not systematically monitored or logged.",
-      "Quantitative values for pH, dynamic viscosity, specific gravity/density, and soil removal efficiency were not measured.",
-      "Existing project flowcharts display conflicting ingredient lists (e.g. NaCl vs MgCl₂) and contain an ambiguous label ('WO₂*') requiring faculty verification."
+      "Quantitative values for pH, dynamic viscosity, and soil removal efficiency were not instrumentally measured.",
+      "Heating temperature and total residence mixing duration were not continuously logged across runs.",
+      "Discrepancies in project flowcharts (NaCl vs MgCl₂) require faculty reconciliation."
     ]
   },
 
   safety: {
-    sectionTitle: "Safety & Chemical Waste Disposal",
-    subtitle: "Mandatory laboratory protocols, hazard mitigation, and environmental compliance",
+    sectionTitle: "Safety & Waste Disposal",
+    subtitle: "Mandatory laboratory protocols and hazard mitigation",
     rules: [
       {
         id: "naoh-hazard",
         severity: "danger",
-        title: "Sodium Hydroxide (NaOH) Corrosive Hazard",
-        description: "NaOH is a strong, caustic base that causes severe chemical burns to skin and irreversible corneal damage. Use only under direct faculty supervision with splash goggles, full lab coat, and chemical-resistant gloves.",
+        title: "Sodium Hydroxide (NaOH) Hazard",
+        description: "NaOH is a strong caustic base causing severe chemical burns and corneal damage. Full PPE (splash goggles, lab coat, nitrile gloves) is mandatory.",
         icon: "ShieldAlert"
       },
       {
         id: "stirring-safety",
         severity: "warning",
         title: "Splashes & Rotating Equipment",
-        description: "Avoid splashing and aerosol generation during magnetic agitation. Keep hair tied back, lab coats buttoned, and loose objects well away from the rotating hotplate surface.",
+        description: "Prevent splashes during ~970 RPM magnetic stirring. Keep hair tied back and loose clothing away from the hotplate surface.",
         icon: "AlertTriangle"
       },
       {
         id: "thermal-safety",
         severity: "warning",
         title: "Heating Limitations",
-        description: "Never heat liquids in a sealed or stoppered vessel due to pressure buildup. Use the minimum effective thermal setting and never leave heating glassware unattended.",
+        description: "Never heat liquids in sealed vessels due to pressure risk. Use minimal heat and never leave hot glassware unattended.",
         icon: "Flame"
       },
       {
         id: "mixing-hazard",
         severity: "danger",
         title: "Prohibited Incompatible Mixtures",
-        description: "Never mix the prototype or any of its reagents with bleach (sodium hypochlorite), strong mineral acids, or household chemical cleaners. Toxic fumes or hazardous exotherms can evolve.",
+        description: "Never mix the formulation with bleach (hypochlorite) or mineral acids; toxic fumes or violent exotherms may result.",
         icon: "Ban"
       },
       {
         id: "labelling-vessels",
         severity: "warning",
         title: "Strict Container Labelling",
-        description: "Label all test vessels and storage containers with clear chemical identities, date, and hazard warnings. Never utilize beverage containers or food bottles for chemical storage under any circumstances.",
+        description: "Label all test vessels with chemical identity, batch date, and hazard warnings. Never use food or beverage containers.",
         icon: "Tag"
       },
       {
         id: "waste-disposal",
         severity: "danger",
         title: "Regulated Waste Disposal",
-        description: "Dispose of all surplus detergent mixtures, chemical rinsates, and wash liquids into designated institutional hazardous waste carboys. Zero drain disposal unless explicitly authorized by the instructor.",
+        description: "Dispose of all surplus detergent and rinsates in designated hazardous waste carboys. Zero unauthorized sink disposal.",
         icon: "Trash2"
       },
       {
         id: "emergency-contact",
         severity: "danger",
         title: "Emergency Exposure Protocol",
-        description: "In case of skin or eye contact, immediately flush with copious running water at an emergency eye wash / deluge shower station for at least 15 minutes. Notify the lab supervisor immediately and refer to the Safety Data Sheet (SDS).",
+        description: "For skin or eye contact, flush immediately at an emergency eyewash station for at least 15 minutes and notify the instructor.",
         icon: "HeartPulse"
       }
     ]
@@ -705,16 +699,13 @@ export const projectContent = {
 
   conclusion: {
     sectionTitle: "Conclusion & Future Scope",
-    subtitle: "Summary of prototype outcomes and strategic recommendations for academic continuation",
-    conclusionText: "A laboratory-scale liquid detergent prototype was successfully prepared and documented through sequential photographs. The formulation produced a characteristic blue liquid mixture, and the magnetic stirrer recorded approximately 970 RPM during one operational stage. The overall procedure encompasses raw material staging, controlled mixing, optional thermal assistance, optional filtration, and container collection. However, definitive conclusions regarding cleaning efficacy, dermatological safety, or colloidal shelf-stability cannot be established without verified ingredient masses, pH measurements, and standardized cleaning performance evaluations.",
+    subtitle: "Summary of prototype outcomes and strategic recommendations",
+    conclusionText: "A laboratory-scale liquid detergent prototype was successfully synthesized and documented with magnetic stirring at ~970 RPM. The resulting blue solution demonstrates basic surfactant and builder dispersion, while definitive cleaning performance and stability require formal instrumental validation.",
     futureScopeList: [
-      "Systematically record exact mass (g) and volume (mL) of every constituent reagent, along with the precise order of addition.",
-      "Record accurate temperature profiles and total residence mixing time across batch runs.",
-      "Clarify and reconcile discrepancies across project diagrams (confirming NaCl vs MgCl₂ and decoding the ambiguous 'WO₂*' label with the faculty guide).",
-      "Perform instrumental characterization: measure solution pH with a calibrated pH meter, dynamic viscosity via a rotational viscometer, and density via pycnometer.",
-      "Execute standardized cleaning trials on designated fabric and glass substrates against a commercial reference detergent.",
-      "Perform stability testing: monitor prototype samples over a 14-day test cycle for syneresis, phase separation, cloud point, or sediment precipitation.",
-      "Evaluate packaging container compatibility (PET vs HDPE) and maintain strict 'Laboratory Prototype Only' warnings."
+      "Quantitatively measure solution pH, rotational viscosity, and specific gravity with calibrated lab instruments.",
+      "Conduct standardized fabric and glass cleaning efficiency tests against commercial liquid detergents.",
+      "Perform a 14-day stability trial to observe phase separation, cloud point, or sediment precipitation.",
+      "Reconcile electrolyte salt selections (NaCl vs MgCl₂) with course faculty advisors."
     ]
   },
 

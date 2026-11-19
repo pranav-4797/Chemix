@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, ArrowRight, Gauge, Award, Users } from 'lucide-react';
+import { Play, ArrowRight, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
@@ -9,9 +9,21 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-white dark:bg-[#060e1a] border-b border-slate-200/80 dark:border-slate-800/80"
+      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Group Photo with Subtle Blur & Overlay Gradient (Inkcraft studio style) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+        <img
+          src="/images/team-group.jpg"
+          alt="Chemix Project Team Background"
+          className="w-full h-full object-cover object-top sm:object-center filter blur-xs sm:blur-sm scale-105 opacity-25 dark:opacity-20 brightness-95 dark:brightness-60"
+        />
+        {/* Multi-layer gradient overlays ensuring flawless contrast and typography readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#060e1a]/95 dark:via-[#060e1a]/88 dark:to-[#060e1a]/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent dark:from-[#060e1a]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Headlines & Call to Actions */}
@@ -23,13 +35,13 @@ export const Hero: React.FC = () => {
           >
             {/* Top pill badges */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-navy-900/90 backdrop-blur-xs border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium shadow-2xs">
                 <span>{hero.supertitle}</span>
               </div>
 
               <a
                 href="#team"
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 dark:bg-navy-900/80 hover:bg-slate-100 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-navy-900/90 backdrop-blur-xs hover:bg-slate-100 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-colors shadow-2xs"
               >
                 <img
                   src="/images/team-group.jpg"
@@ -52,7 +64,7 @@ export const Hero: React.FC = () => {
             </p>
 
             {/* Institutional Line */}
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-navy-900/60 border border-slate-200/80 dark:border-navy-800 text-xs sm:text-sm text-slate-600 dark:text-slate-300 flex items-start gap-3">
+            <div className="p-3.5 rounded-xl bg-white/80 dark:bg-navy-900/70 backdrop-blur-xs border border-slate-200/80 dark:border-navy-800 text-xs sm:text-sm text-slate-600 dark:text-slate-300 flex items-start gap-3 shadow-2xs">
               <Award className="w-5 h-5 text-blue-600 dark:text-cyan-400 shrink-0 mt-0.5" />
               <span>{hero.institutionLine}</span>
             </div>
@@ -69,7 +81,7 @@ export const Hero: React.FC = () => {
 
               <a
                 href={hero.primaryCta.href}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-100 dark:bg-navy-900 hover:bg-slate-200 dark:hover:bg-navy-800 text-slate-800 dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-200 dark:border-navy-700 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/90 dark:bg-navy-900 hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-800 dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-200 dark:border-navy-700 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[44px]"
               >
                 <span>{hero.primaryCta.text}</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -86,7 +98,7 @@ export const Hero: React.FC = () => {
             {/* Key Measurements Strip */}
             <div className="pt-2 grid grid-cols-3 gap-3 sm:gap-4">
               {hero.quickStats.map((st, i) => (
-                <div key={i} className="p-3 rounded-xl bg-slate-50 dark:bg-navy-900/40 border border-slate-200/70 dark:border-navy-800">
+                <div key={i} className="p-3 rounded-xl bg-white/80 dark:bg-navy-900/60 backdrop-blur-xs border border-slate-200/70 dark:border-navy-800 shadow-2xs">
                   <div className="text-lg sm:text-xl font-mono font-bold text-navy-950 dark:text-white">
                     {st.value}
                   </div>
@@ -147,21 +159,6 @@ export const Hero: React.FC = () => {
                       <span>Prototype Agitation</span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Floating Mini Spec Card */}
-              <div className="hidden sm:flex absolute -bottom-4 -left-4 p-3 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-700 shadow-md items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-navy-800 flex items-center justify-center text-blue-600 dark:text-cyan-400">
-                  <Gauge className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="block text-[11px] text-slate-500 dark:text-slate-400 font-normal">
-                    Observed Agitation Speed
-                  </span>
-                  <span className="block text-xs font-mono font-bold text-navy-950 dark:text-white">
-                    970 RPM Digital Readout
-                  </span>
                 </div>
               </div>
 
