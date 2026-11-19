@@ -9,28 +9,27 @@ export const Hero: React.FC = () => {
       id="hero" 
       className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#060e1a] text-white pt-28 sm:pt-32 pb-20"
     >
-      {/* Background Group Photo - Clear, bright and visible with balanced gradient overlays (Like inkcraft-studio reference) */}
+      {/* Background Group Photo - High brightness and natural exposure so all 5 student faces are completely visible */}
       <div className="absolute inset-0 z-0 select-none overflow-hidden" aria-hidden="true">
         <img
           src="/images/team-group.jpg"
           alt="Chemix Student Formulation Team"
-          className="w-full h-full object-cover object-[center_15%] filter brightness-[0.75] contrast-[1.08] saturate-[1.05] scale-100 sm:scale-102 transition-transform duration-700"
+          className="w-full h-full object-cover object-[center_24%] filter brightness-[1.12] contrast-[1.12] saturate-[1.08] scale-100 transition-transform duration-700"
         />
-        {/* Top subtle scrim for top navigation bar */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#060e1a]/80 via-[#060e1a]/30 to-transparent" />
-        
-        {/* Soft center atmospheric tint */}
-        <div className="absolute inset-0 bg-[#060e1a]/25 backdrop-blur-[0.5px]" />
-        
-        {/* Bottom dark gradient to ensure text & CTA legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060e1a] via-[#060e1a]/75 via-50% to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,14,26,0.3)_0%,_rgba(6,14,26,0.7)_100%)]" />
+        {/* Soft, minimal ambient veil to retain 85%+ photo brightness while giving text contrast */}
+        <div className="absolute inset-0 bg-[#060e1a]/20 pointer-events-none" />
 
-        {/* Ambient decorative cyan light accents */}
-        <div className="absolute top-1/4 left-1/6 w-2.5 h-2.5 rounded-full bg-cyan-400/80 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
-        <div className="absolute top-1/3 right-1/5 w-2 h-2 rounded-full bg-cyan-300/70 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
-        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 rounded-full bg-cyan-400/60 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
-        <div className="absolute bottom-1/4 right-1/4 w-3 h-3 rounded-full bg-blue-400/70 shadow-[0_0_14px_rgba(96,165,250,0.8)]" />
+        {/* Top subtle scrim exclusively for navbar readability */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#060e1a]/60 via-[#060e1a]/15 to-transparent pointer-events-none" />
+        
+        {/* Bottom smooth fade to ground the CTA buttons and transition into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-72 sm:h-96 bg-gradient-to-t from-[#060e1a] via-[#060e1a]/85 via-45% to-transparent pointer-events-none" />
+
+        {/* Light ambient cyan dots */}
+        <div className="absolute top-1/4 left-1/12 w-2.5 h-2.5 rounded-full bg-cyan-400/80 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
+        <div className="absolute top-1/3 right-1/12 w-2 h-2 rounded-full bg-cyan-300/70 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
+        <div className="absolute bottom-1/3 left-1/8 w-2 h-2 rounded-full bg-cyan-400/60 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
+        <div className="absolute bottom-1/4 right-1/8 w-3 h-3 rounded-full bg-blue-400/70 shadow-[0_0_14px_rgba(96,165,250,0.8)]" />
       </div>
 
       {/* Foreground Centered Content */}
