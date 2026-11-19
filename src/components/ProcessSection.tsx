@@ -6,9 +6,7 @@ import {
   ZoomIn, 
   Maximize2,
   Gauge,
-  Video,
-  FileText,
-  Sparkles
+  FileText
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
@@ -16,13 +14,10 @@ import { projectContent } from '../data/content';
 export const ProcessSection: React.FC = () => {
   const { process } = projectContent;
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [activeVisualTab, setActiveVisualTab] = useState<'video' | 'pfd'>('video');
   const [diagramModalOpen, setDiagramModalOpen] = useState(false);
 
   return (
-    <section id="process" className="py-20 bg-slate-50/70 dark:bg-[#081220] relative">
-      <div id="process-video-view" className="absolute -top-24 left-0 w-1 h-1 pointer-events-none" />
-      
+    <section id="process" className="py-20 bg-slate-50/70 dark:bg-[#081220] relative border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -51,7 +46,7 @@ export const ProcessSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-soft"
+          className="mb-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-sm"
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             {process.flowStages.map((stage, idx) => {
@@ -59,7 +54,7 @@ export const ProcessSection: React.FC = () => {
               return (
                 <React.Fragment key={idx}>
                   <div className="flex items-center gap-3 w-full lg:w-auto">
-                    <div className="w-9 h-9 rounded-xl bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0 shadow-sm">
+                    <div className="w-9 h-9 rounded-xl bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0 shadow-xs">
                       {idx + 1}
                     </div>
                     <span className="text-xs sm:text-sm font-semibold text-navy-950 dark:text-slate-200">
@@ -78,7 +73,7 @@ export const ProcessSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Main Process Grid: Step Details (Left) + Video & PFD (Right) */}
+        {/* Main Process Grid: Step Details (Left) + Process Flow Diagram (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Interactive Step Breakdown (Timeline) */}
@@ -94,9 +89,9 @@ export const ProcessSection: React.FC = () => {
                 <div
                   key={step.stepNumber}
                   onClick={() => setActiveStepIndex(idx)}
-                  className={`cursor-pointer p-6 rounded-2xl border transition-all duration-300 ${
+                  className={`cursor-pointer p-6 rounded-2xl border transition-all duration-200 ${
                     isSelected
-                      ? 'bg-white dark:bg-navy-900 border-blue-500 shadow-soft-lg ring-1 ring-blue-500/30'
+                      ? 'bg-white dark:bg-navy-900 border-blue-500 shadow-sm ring-1 ring-blue-500/20'
                       : 'bg-white/60 dark:bg-navy-900/40 border-slate-200 dark:border-navy-800 hover:bg-white dark:hover:bg-navy-900'
                   }`}
                 >
@@ -127,7 +122,7 @@ export const ProcessSection: React.FC = () => {
                   </p>
 
                   <div className="mt-3 pl-11 flex flex-wrap items-center gap-2 text-xs">
-                    <span className="font-semibold text-blue-600 dark:text-cyan-400 flex items-center gap-1">
+                    <span className="font-medium text-blue-600 dark:text-cyan-400 flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       Key Action: {step.keyAction}
                     </span>
@@ -142,124 +137,51 @@ export const ProcessSection: React.FC = () => {
             })}
           </div>
 
-          {/* Right Column: Visual Media Hub (Live Video + PFD Diagram) */}
+          {/* Right Column: Process Flow Diagram (PFD) Display */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="p-4 sm:p-5 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-soft-lg space-y-4">
-              
-              {/* Tab Selector Buttons */}
-              <div className="flex items-center justify-between p-1 rounded-xl bg-slate-100 dark:bg-navy-950 border border-slate-200/80 dark:border-navy-800">
+            <div className="p-5 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 shadow-sm space-y-4">
+              <div className="flex items-center justify-between px-1">
+                <div className="flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                  <h4 className="font-display font-bold text-sm text-navy-950 dark:text-white">
+                    Process Flow Diagram (PFD)
+                  </h4>
+                </div>
                 <button
                   type="button"
-                  onClick={() => setActiveVisualTab('video')}
-                  className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all min-h-[38px] ${
-                    activeVisualTab === 'video'
-                      ? 'bg-blue-600 text-white shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-400'
-                  }`}
+                  onClick={() => setDiagramModalOpen(true)}
+                  className="p-1.5 rounded-lg bg-slate-100 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors"
+                  title="Enlarge Diagram"
                 >
-                  <Video className="w-3.5 h-3.5" />
-                  <span>Live Process Video</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveVisualTab('pfd')}
-                  className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all min-h-[38px] ${
-                    activeVisualTab === 'pfd'
-                      ? 'bg-blue-600 text-white shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-400'
-                  }`}
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Process Flow (PFD)</span>
+                  <Maximize2 className="w-4 h-4" />
                 </button>
               </div>
 
-              {/* Tab 1: Live Process Video */}
-              {activeVisualTab === 'video' && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25 }}
-                  className="space-y-3"
-                >
-                  <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 bg-black aspect-[9/16] sm:aspect-video flex items-center justify-center shadow-inner">
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      poster="/images/fig-5-1.jpeg"
-                      className="w-full h-full object-contain"
-                    >
-                      <source src={process.processVideo || "/video/process-video.mp4"} type="video/mp4" />
-                      Your browser does not support HTML5 video playback.
-                    </video>
+              {/* Diagram Image Container */}
+              <div 
+                className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 bg-[#0B1F3A] cursor-pointer group"
+                onClick={() => setDiagramModalOpen(true)}
+              >
+                <img
+                  src={process.diagramImage}
+                  alt={process.diagramAlt}
+                  loading="lazy"
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="px-3 py-1.5 rounded-lg bg-navy-950/80 text-white text-xs font-semibold backdrop-blur-xs flex items-center gap-1.5 shadow">
+                    <ZoomIn className="w-3.5 h-3.5 text-cyan-400" />
+                    Click to Inspect PFD
+                  </span>
+                </div>
+              </div>
 
-                    {/* Overlay Speed Badge */}
-                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-[11px] font-mono font-bold flex items-center gap-1.5 pointer-events-none">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                      <span>970 RPM Agitation</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-navy-950/60 text-xs text-slate-600 dark:text-slate-300 leading-snug space-y-1">
-                    <div className="font-bold text-blue-700 dark:text-cyan-300 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Vortex &amp; Dissolution Kinematics</span>
-                    </div>
-                    <p>
-                      Direct recording of the magnetic stirrer generating a deep vortex, accelerating surfactant micelle formation and homogenous dispersion of salts and co-solvents.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Tab 2: Process Flow Diagram Image */}
-              {activeVisualTab === 'pfd' && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25 }}
-                  className="space-y-3"
-                >
-                  <div className="flex items-center justify-between px-1">
-                    <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-                      Figure Ref: img-1.svg | Chemical unit operations
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setDiagramModalOpen(true)}
-                      className="p-1.5 rounded-lg bg-slate-100 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors"
-                      title="Enlarge Diagram"
-                    >
-                      <Maximize2 className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div 
-                    className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 bg-[#0B1F3A] cursor-pointer group"
-                    onClick={() => setDiagramModalOpen(true)}
-                  >
-                    <img
-                      src={process.diagramImage}
-                      alt={process.diagramAlt}
-                      loading="lazy"
-                      className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="px-3 py-1.5 rounded-lg bg-navy-950/80 text-white text-xs font-semibold backdrop-blur-xs flex items-center gap-1.5 shadow">
-                        <ZoomIn className="w-3.5 h-3.5 text-cyan-400" />
-                        Click to Inspect PFD
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-navy-950/60 text-xs text-slate-600 dark:text-slate-300 leading-snug">
-                    <strong>Flow Sequence:</strong> Raw materials &amp; water → Controlled mixing (~970 RPM) → Heat assist (optional) → Ambient cooling/filtration → Sample vial collection &amp; labelling.
-                  </div>
-                </motion.div>
-              )}
-
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-navy-950/60 text-xs text-slate-600 dark:text-slate-300 leading-snug space-y-1">
+                <span className="font-semibold text-navy-950 dark:text-white block">Flow Sequence:</span>
+                <p>
+                  Raw materials &amp; water → Controlled mixing (~970 RPM) → Mild heat assist (optional) → Ambient cooling/filtration → Sample vial collection.
+                </p>
+              </div>
             </div>
           </div>
 

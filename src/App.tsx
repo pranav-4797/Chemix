@@ -67,26 +67,26 @@ export const App: React.FC = () => {
         {/* 7. PROCESS / METHODOLOGY */}
         <ProcessSection />
 
-        {/* 8. PHOTO GALLERY */}
+        {/* 8. LIVE PROCESS VIDEO EXECUTION */}
+        <VideoSection />
+
+        {/* 9. PHOTO GALLERY */}
         <GallerySection />
 
-        {/* 9. RESULTS AND OBSERVATIONS */}
+        {/* 10. RESULTS AND OBSERVATIONS */}
         <ObservationsSection />
 
-        {/* 10. DISCUSSION AND LIMITATIONS */}
+        {/* 11. DISCUSSION AND LIMITATIONS */}
         <DiscussionSection />
 
-        {/* 11. SAFETY AND WASTE DISPOSAL */}
+        {/* 12. SAFETY AND WASTE DISPOSAL */}
         <SafetySection />
 
-        {/* 12. CONCLUSION AND FUTURE SCOPE */}
+        {/* 13. CONCLUSION AND FUTURE SCOPE */}
         <ConclusionSection />
 
-        {/* 13. EXPERIMENT QUIZ */}
+        {/* 14. EXPERIMENT QUIZ */}
         <QuizSection />
-
-        {/* 14. VIDEO */}
-        <VideoSection />
 
         {/* 15. REFERENCES */}
         <ReferencesSection />

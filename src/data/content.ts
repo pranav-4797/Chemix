@@ -112,10 +112,10 @@ export const projectContent = {
       { label: "Apparatus", href: "#apparatus" },
       { label: "Theory", href: "#theory" },
       { label: "Process", href: "#process" },
+      { label: "Video", href: "#video" },
       { label: "Gallery", href: "#gallery" },
       { label: "Observations", href: "#observations" },
       { label: "Safety", href: "#safety" },
-      { label: "Video", href: "#video" },
       { label: "Quiz", href: "#quiz" },
     ]
   },
