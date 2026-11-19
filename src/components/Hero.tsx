@@ -1,171 +1,134 @@
 import React from 'react';
-import { Play, ArrowRight, Award, Users } from 'lucide-react';
+import { Play, ArrowRight, FlaskConical, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { projectContent } from '../data/content';
 
 export const Hero: React.FC = () => {
-  const { hero } = projectContent;
 
   return (
     <section 
       id="hero" 
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80"
+      className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#060e1a] text-white pt-24 pb-16"
     >
-      {/* Background Group Photo with Subtle Blur & Overlay Gradient (Inkcraft studio style) */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+      {/* Background Group Photo - Prominently visible with dark atmospheric overlay (Like inkcraft-studio reference) */}
+      <div className="absolute inset-0 z-0 select-none overflow-hidden" aria-hidden="true">
         <img
           src="/images/team-group.jpg"
-          alt="Chemix Project Team Background"
-          className="w-full h-full object-cover object-top sm:object-center filter blur-xs sm:blur-sm scale-105 opacity-25 dark:opacity-20 brightness-95 dark:brightness-60"
+          alt="Chemix Student Formulation Team"
+          className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.42] contrast-105 scale-100 sm:scale-105"
         />
-        {/* Multi-layer gradient overlays ensuring flawless contrast and typography readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#060e1a]/95 dark:via-[#060e1a]/88 dark:to-[#060e1a]/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent dark:from-[#060e1a]" />
+        {/* Layered cinematic gradients to guarantee perfect text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060e1a] via-[#060e1a]/60 to-[#060e1a]/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(6,14,26,0.85)_100%)]" />
+
+        {/* Ambient cyan reference dots */}
+        <div className="absolute top-1/4 left-1/6 w-2 h-2 rounded-full bg-cyan-400/70 blur-[0.5px]" />
+        <div className="absolute top-1/3 right-1/5 w-2 h-2 rounded-full bg-cyan-400/60 blur-[0.5px]" />
+        <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 rounded-full bg-cyan-400/50 blur-[0.5px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-2.5 h-2.5 rounded-full bg-blue-400/60 blur-[0.5px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Headlines & Call to Actions */}
-          <motion.div 
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-7 space-y-6 text-left"
+      {/* Foreground Centered Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-7">
+        
+        {/* Top Tag Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-slate-200 text-xs sm:text-sm font-medium shadow-md"
+        >
+          <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
+          <span>Chemical Prototyping Laboratory Project</span>
+        </motion.div>
+
+        {/* Big Centered Headline with Serif Elegance */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="space-y-1 sm:space-y-2"
+        >
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.12]">
+            Chemical Prototyping &amp;
+            <span className="block mt-1 sm:mt-2 text-cyan-400 font-serif">
+              Preparation of Liquid Detergent
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* Subtitle Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto"
+        >
+          A comprehensive laboratory study of liquid detergent formulation using SLS, NaOH, castor oil, EDTA, glycerol, and copper sulfate through systematic chemical unit operations.
+        </motion.p>
+
+        {/* Institutional Metadata Bullets */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-cyan-300/90 font-medium pt-1"
+        >
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            MIT Academy of Engineering, Pune
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            SY B.Tech Chemical Prototyping
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            Academic Year 2026–2027
+          </span>
+        </motion.div>
+
+        {/* Centered CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="pt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+        >
+          <a
+            href="#process-video-view"
+            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-sm sm:text-base shadow-lg shadow-cyan-500/25 transition-all duration-150 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 min-h-[46px]"
           >
-            {/* Top pill badges */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-navy-900/90 backdrop-blur-xs border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium shadow-2xs">
-                <span>{hero.supertitle}</span>
-              </div>
+            <Play className="w-4 h-4 fill-navy-950" />
+            <span>Watch Process Video</span>
+          </a>
 
-              <a
-                href="#team"
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-navy-900/90 backdrop-blur-xs hover:bg-slate-100 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition-colors shadow-2xs"
-              >
-                <img
-                  src="/images/team-group.jpg"
-                  alt="Student Team"
-                  className="w-4 h-4 rounded-full object-cover"
-                />
-                <span>SY B.Tech Team</span>
-                <Users className="w-3.5 h-3.5 text-slate-400" />
-              </a>
-            </div>
-
-            {/* Main Title - Calm, Solid, Authoritative */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-navy-950 dark:text-white tracking-tight leading-[1.15]">
-              Preparation of <span className="text-blue-600 dark:text-blue-400">Liquid Detergent</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg md:text-xl font-normal text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-              {hero.subtitle}
-            </p>
-
-            {/* Institutional Line */}
-            <div className="p-3.5 rounded-xl bg-white/80 dark:bg-navy-900/70 backdrop-blur-xs border border-slate-200/80 dark:border-navy-800 text-xs sm:text-sm text-slate-600 dark:text-slate-300 flex items-start gap-3 shadow-2xs">
-              <Award className="w-5 h-5 text-blue-600 dark:text-cyan-400 shrink-0 mt-0.5" />
-              <span>{hero.institutionLine}</span>
-            </div>
-
-            {/* CTA Action Buttons - Focused Primary & Secondary */}
-            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-              <a
-                href="#process-video-view"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm sm:text-base shadow-sm transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[44px]"
-              >
-                <Play className="w-4 h-4 fill-white" />
-                <span>Watch Process Video</span>
-              </a>
-
-              <a
-                href={hero.primaryCta.href}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/90 dark:bg-navy-900 hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-800 dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-200 dark:border-navy-700 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[44px]"
-              >
-                <span>{hero.primaryCta.text}</span>
-                <ArrowRight className="w-4 h-4 text-slate-500" />
-              </a>
-
-              <a
-                href="#quiz"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 text-sm font-medium transition-colors min-h-[44px]"
-              >
-                <span>Take Lab Quiz →</span>
-              </a>
-            </div>
-
-            {/* Key Measurements Strip */}
-            <div className="pt-2 grid grid-cols-3 gap-3 sm:gap-4">
-              {hero.quickStats.map((st, i) => (
-                <div key={i} className="p-3 rounded-xl bg-white/80 dark:bg-navy-900/60 backdrop-blur-xs border border-slate-200/70 dark:border-navy-800 shadow-2xs">
-                  <div className="text-lg sm:text-xl font-mono font-bold text-navy-950 dark:text-white">
-                    {st.value}
-                  </div>
-                  <div className="text-xs font-medium text-slate-600 dark:text-slate-400">
-                    {st.label}
-                  </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-500 hidden sm:block">
-                    {st.note}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </motion.div>
-
-          {/* Right Column: Hero Visual - Real Photo without slop halos */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-5 relative"
+          <a
+            href="#process"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base border border-white/20 backdrop-blur-md transition-all duration-150 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white min-h-[46px]"
           >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Clean Card Container */}
-              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
-                    src={hero.heroImage.src}
-                    alt={hero.heroImage.alt}
-                    loading="eager"
-                    className="w-full h-full object-cover object-center"
-                  />
-                  
-                  {/* Digital Readout Overlay */}
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-sm border border-white/10 text-white shadow-md">
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                    <span className="font-mono text-xs text-red-400 font-bold tracking-wider">
-                      970 RPM
-                    </span>
-                    <span className="text-[10px] text-slate-300">
-                      Tachometer
-                    </span>
-                  </div>
+            <span>View Process Diagram</span>
+            <ArrowRight className="w-4 h-4 text-cyan-300" />
+          </a>
 
-                  {/* Prototype Label */}
-                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-blue-600 text-white text-xs font-semibold shadow">
-                    Lab Prototype
-                  </div>
+          <a
+            href="#quiz"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm text-slate-300 hover:text-cyan-400 transition-colors min-h-[40px]"
+          >
+            <span>Take Lab Quiz →</span>
+          </a>
+        </motion.div>
 
-                  {/* Bottom Caption Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white">
-                    <p className="text-xs sm:text-sm font-medium leading-snug">
-                      {hero.heroImage.caption}
-                    </p>
-                    <div className="mt-1.5 flex items-center justify-between text-[11px] text-slate-300">
-                      <span>REMI 2MLH Magnetic Stirrer</span>
-                      <span>Prototype Agitation</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="pt-6 sm:pt-10 flex flex-col items-center gap-1.5 text-[11px] uppercase tracking-[0.25em] text-slate-400 font-medium"
+        >
+          <span>SCROLL TO EXPLORE</span>
+          <ChevronDown className="w-4 h-4 text-cyan-400 animate-bounce" />
+        </motion.div>
 
-            </div>
-          </motion.div>
-
-        </div>
       </div>
     </section>
   );

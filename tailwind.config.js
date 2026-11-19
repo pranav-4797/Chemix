@@ -34,6 +34,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       boxShadow: {
         'soft': '0 4px 20px -2px rgba(11, 31, 58, 0.08)',
