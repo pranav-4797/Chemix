@@ -34,20 +34,20 @@ export const IngredientsSection: React.FC = () => {
   });
 
   return (
-    <section id="ingredients" className="py-20 bg-white dark:bg-[#060e1a] relative">
+    <section id="ingredients" className="py-20 bg-white dark:bg-[#060e1a] relative border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-12 space-y-2.5"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
-            <Atom className="w-3.5 h-3.5" />
-            <span>Chemical Formulation</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium">
+            <Atom className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
+            <span>Chemical formulation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-950 dark:text-white">
             {ingredients.sectionTitle}
@@ -59,15 +59,15 @@ export const IngredientsSection: React.FC = () => {
 
         {/* Essential Info Note Box */}
         <motion.div 
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto mb-10 p-4 sm:p-5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 flex items-start gap-3.5 shadow-xs"
+          transition={{ duration: 0.4 }}
+          className="max-w-4xl mx-auto mb-10 p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-navy-900/60 border border-slate-200 dark:border-navy-800 flex items-start gap-3.5"
         >
-          <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-          <div className="text-xs sm:text-sm text-amber-900 dark:text-amber-200/90 leading-relaxed">
-            <strong className="font-semibold block sm:inline text-amber-950 dark:text-amber-200 mr-1">
+          <Info className="w-5 h-5 text-blue-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+          <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <strong className="font-semibold block sm:inline text-navy-950 dark:text-white mr-1">
               Formulation Notice:
             </strong>
             {ingredients.infoNote}
@@ -80,9 +80,9 @@ export const IngredientsSection: React.FC = () => {
             <button
               key={cat.value}
               onClick={() => setSelectedFilter(cat.value)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 min-h-[44px] flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors min-h-[44px] flex items-center gap-1.5 ${
                 selectedFilter === cat.value
-                  ? 'bg-blue-600 text-white shadow-soft'
+                  ? 'bg-blue-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-navy-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-800'
               }`}
             >
@@ -96,25 +96,26 @@ export const IngredientsSection: React.FC = () => {
           {filteredItems.map((item, idx) => {
             const isExpanded = expandedCard === item.id;
             const hasWarning = !!item.safetyWarning;
+            const hasActual = item.actualQuantity && item.actualQuantity !== '—';
 
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className={`group rounded-2xl bg-slate-50 dark:bg-navy-900 border transition-all duration-300 shadow-soft hover:shadow-soft-lg flex flex-col justify-between ${
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                className={`rounded-2xl bg-white dark:bg-navy-900 border transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between ${
                   hasWarning 
-                    ? 'border-red-300 dark:border-red-900/60 bg-red-50/20 dark:bg-navy-900' 
-                    : 'border-slate-200/80 dark:border-navy-800'
+                    ? 'border-red-200 dark:border-red-900/60 bg-red-50/10' 
+                    : 'border-slate-200/90 dark:border-navy-800'
                 }`}
               >
                 <div className="p-5 sm:p-6">
                   {/* Card Header: Small Chemical Photo + Name & Formula */}
                   <div className="flex items-start gap-3.5 mb-3.5">
                     {item.image && (
-                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-navy-700 shadow-2xs shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 shrink-0">
                         <img
                           src={item.image}
                           alt={item.name}
@@ -125,10 +126,10 @@ export const IngredientsSection: React.FC = () => {
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                        <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-white dark:bg-navy-950 text-blue-600 dark:text-cyan-400 border border-slate-200 dark:border-navy-800">
+                        <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-navy-950 text-blue-600 dark:text-cyan-400 border border-slate-200/80 dark:border-navy-800">
                           {item.formula}
                         </span>
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-navy-800 text-blue-700 dark:text-cyan-300 truncate">
+                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 truncate">
                           {item.badge}
                         </span>
                       </div>
@@ -139,25 +140,27 @@ export const IngredientsSection: React.FC = () => {
                   </div>
 
                   {/* Role Description */}
-                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
                     {item.role}
                   </p>
 
-                  {/* Lab Notebook Quantities Badge (if recorded) */}
-                  {item.targetQuantity && (
-                    <div className="mb-4 px-3 py-1.5 rounded-lg bg-white dark:bg-navy-950 border border-slate-200/80 dark:border-navy-800 flex items-center justify-between text-xs">
-                      <span className="text-slate-500 dark:text-slate-400">
-                        Target: <strong className="text-navy-950 dark:text-white font-mono">{item.targetQuantity}</strong>
-                      </span>
-                      <span className="text-blue-600 dark:text-cyan-400 font-semibold font-mono">
-                        Actual: {item.actualQuantity}
-                      </span>
-                    </div>
-                  )}
+                  {/* Single Clear Actual Measured Quantity Badge */}
+                  <div className="mb-4 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-navy-950/80 border border-slate-200 dark:border-navy-800 flex items-center justify-between text-xs">
+                    <span className="text-slate-500 dark:text-slate-400 font-medium">
+                      {hasActual ? 'Actual Quantity:' : 'Status:'}
+                    </span>
+                    <span className={`font-mono font-semibold ${
+                      hasActual 
+                        ? 'text-blue-700 dark:text-cyan-300' 
+                        : 'text-slate-500 dark:text-slate-400 font-normal'
+                    }`}>
+                      {hasActual ? item.actualQuantity : 'Optional (Not added in batch)'}
+                    </span>
+                  </div>
 
                   {/* Safety Warning Badge (e.g. for NaOH) */}
                   {item.safetyWarning && (
-                    <div className="mb-4 p-3 rounded-xl bg-red-100/80 dark:bg-red-950/50 border border-red-200 dark:border-red-900 text-red-800 dark:text-red-200 flex items-start gap-2 text-xs">
+                    <div className="mb-4 p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-800 dark:text-red-200 flex items-start gap-2 text-xs">
                       <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                       <span className="font-medium leading-tight">
                         {item.safetyWarning}
@@ -183,7 +186,7 @@ export const IngredientsSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleCard(item.id)}
-                    className="w-full py-2.5 px-3 rounded-xl bg-white dark:bg-navy-950 hover:bg-blue-50 dark:hover:bg-navy-800 text-blue-600 dark:text-cyan-400 border border-slate-200/90 dark:border-navy-800 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors min-h-[44px]"
+                    className="w-full py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-navy-950 hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-navy-800 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors min-h-[44px]"
                     aria-expanded={isExpanded}
                   >
                     <span>{isExpanded ? 'Hide Technical Details' : 'View Chemical Specs'}</span>

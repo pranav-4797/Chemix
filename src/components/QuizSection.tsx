@@ -78,24 +78,20 @@ export const QuizSection: React.FC = () => {
   };
 
   return (
-    <section id="quiz" className="py-20 bg-gradient-to-b from-white via-slate-50 to-blue-50/40 dark:from-[#060e1a] dark:via-[#091528] dark:to-[#060e1a] relative overflow-hidden">
-      {/* Decorative background glows */}
-      <div className="absolute top-1/3 -right-24 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-10 -left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-
+    <section id="quiz" className="py-20 bg-slate-50/70 dark:bg-[#081220] relative border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 space-y-3"
+          className="text-center mb-12 space-y-2.5"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Interactive Knowledge Check</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium">
+            <HelpCircle className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
+            <span>Interactive knowledge check</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-950 dark:text-white">
             {quiz.sectionTitle}
@@ -255,12 +251,12 @@ export const QuizSection: React.FC = () => {
               transition={{ duration: 0.4 }}
               className="text-center py-6 sm:py-8 space-y-6"
             >
-              <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-glow">
-                <Award className="w-10 h-10" />
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-md">
+                <Award className="w-8 h-8" />
               </div>
 
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-100 dark:bg-navy-800 text-blue-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 text-xs font-semibold">
                   {getScoreSummary().badge}
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-navy-950 dark:text-white">

@@ -15,15 +15,15 @@ export const TheorySection: React.FC = () => {
         
         {/* Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-16 space-y-2.5"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Theoretical Foundation</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium">
+            <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
+            <span>Theoretical foundation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-950 dark:text-white">
             {theory.sectionTitle}

@@ -8,23 +8,20 @@ export const VideoSection: React.FC = () => {
   const [sourceMode, setSourceMode] = useState<'process' | 'prototype' | 'drive'>('process');
 
   return (
-    <section id="video" className="py-20 bg-slate-50/70 dark:bg-[#081220] relative overflow-hidden">
-      {/* Decorative background blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-500/10 blur-3xl pointer-events-none rounded-full" aria-hidden="true" />
-
+    <section id="video" className="py-20 bg-slate-50/70 dark:bg-[#081220] relative border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-12 space-y-2.5"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
-            <Video className="w-3.5 h-3.5" />
-            <span>Video Documentation</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs font-medium">
+            <Video className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
+            <span>Video documentation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-950 dark:text-white">
             {video.sectionTitle}

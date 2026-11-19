@@ -252,9 +252,8 @@ export const ObservationsSection: React.FC = () => {
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
-                <tr className="bg-slate-50 dark:bg-navy-950 text-navy-950 dark:text-slate-200 text-xs font-semibold uppercase tracking-wider border-b border-slate-200 dark:border-navy-800">
+                <tr className="bg-slate-50 dark:bg-navy-950 text-slate-700 dark:text-slate-300 text-xs font-semibold border-b border-slate-200 dark:border-navy-800">
                   <th className="py-3 px-4">Ingredient</th>
-                  <th className="py-3 px-4">Target Quantity {batchMultiplier !== 1 && `(${batchMultiplier}×)`}</th>
                   <th className="py-3 px-4">Actual Quantity {batchMultiplier !== 1 && `(${batchMultiplier}×)`}</th>
                   <th className="py-3 px-4">Remarks</th>
                 </tr>
@@ -264,9 +263,6 @@ export const ObservationsSection: React.FC = () => {
                   <tr key={idx} className="hover:bg-slate-50/60 dark:hover:bg-navy-800/40">
                     <td className="py-3 px-4 font-sans font-semibold text-navy-950 dark:text-slate-200">
                       {row.ingredient}
-                    </td>
-                    <td className="py-3 px-4 font-bold text-blue-600 dark:text-cyan-400">
-                      {scaleQuantity(row.targetQuantity, batchMultiplier)}
                     </td>
                     <td className="py-3 px-4 font-bold text-blue-600 dark:text-cyan-400">
                       {scaleQuantity(row.actualQuantity, batchMultiplier)}
@@ -291,8 +287,8 @@ export const ObservationsSection: React.FC = () => {
                   {row.ingredient}
                 </div>
                 <div className="text-[11px] flex justify-between font-mono bg-white dark:bg-navy-900 p-2 rounded-lg border border-slate-200/60 dark:border-navy-800">
-                  <span className="text-slate-600 dark:text-slate-300">Target: <strong className="text-blue-600 dark:text-cyan-400">{scaleQuantity(row.targetQuantity, batchMultiplier)}</strong></span>
-                  <span className="text-slate-600 dark:text-slate-300">Actual: <strong className="text-blue-600 dark:text-cyan-400">{scaleQuantity(row.actualQuantity, batchMultiplier)}</strong></span>
+                  <span className="text-slate-500 dark:text-slate-400">Actual Quantity:</span>
+                  <strong className="text-blue-600 dark:text-cyan-400">{scaleQuantity(row.actualQuantity, batchMultiplier)}</strong>
                 </div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 italic pt-1">
                   {row.remarks}
