@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
       setScrollProgress(progress);
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 40);
 
       // Determine active section based on scroll position
       const sections = projectContent.header.navLinks.map(l => l.href.substring(1));
@@ -54,8 +54,8 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       <nav 
         className={`w-full px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
           isScrolled 
-            ? 'glass-nav shadow-soft py-3' 
-            : 'bg-white/80 dark:bg-navy-950/80 backdrop-blur-md py-4'
+            ? 'bg-white/95 dark:bg-[#060e1a]/95 backdrop-blur-md shadow-md py-3 border-b border-slate-200/80 dark:border-navy-800' 
+            : 'bg-transparent py-4 sm:py-5 border-transparent'
         }`}
         aria-label="Main Navigation"
       >
@@ -63,23 +63,29 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           {/* Logo / Project Identification */}
           <a 
             href="#hero" 
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1"
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
               <Beaker className="w-5 h-5" />
             </div>
             <div>
-              <span className="block font-display font-bold text-base sm:text-lg text-navy-950 dark:text-white leading-tight">
+              <span className={`block font-display font-bold text-base sm:text-lg leading-tight transition-colors ${
+                isScrolled ? 'text-navy-950 dark:text-white' : 'text-white drop-shadow-xs'
+              }`}>
                 Chemix
               </span>
-              <span className="block text-xs text-blue-600 dark:text-cyan-400 font-medium">
+              <span className="block text-xs text-cyan-400 font-medium">
                 Liquid Detergent Proto
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-1 bg-slate-100/70 dark:bg-navy-900/60 p-1.5 rounded-full border border-slate-200/60 dark:border-navy-800">
+          <div className={`hidden xl:flex items-center gap-1 p-1.5 rounded-full transition-all duration-300 ${
+            isScrolled
+              ? 'bg-slate-100/80 dark:bg-navy-900/80 border border-slate-200/80 dark:border-navy-800'
+              : 'bg-black/35 backdrop-blur-md border border-white/20 shadow-md'
+          }`}>
             {projectContent.header.navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -88,8 +94,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                   href={link.href}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400'
+                      ? isScrolled
+                        ? 'bg-blue-600 text-white shadow-sm'
+                        : 'bg-cyan-500 text-navy-950 font-bold shadow-sm'
+                      : isScrolled
+                      ? 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400'
+                      : 'text-white/85 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -104,22 +114,34 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className={`w-11 h-11 flex items-center justify-center rounded-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                isScrolled
+                  ? 'bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-cyan-400'
+                  : 'bg-black/35 backdrop-blur-md border border-white/20 text-white hover:text-cyan-400 shadow-sm'
+              }`}
               aria-label={darkMode ? 'Switch to light theme' : 'Switch to dark theme'}
             >
-              {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
+              {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-amber-300" />}
             </button>
 
             {/* Minor Project Badge (Desktop) */}
-            <span className="hidden md:inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-navy-900 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-800/50">
+            <span className={`hidden md:inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${
+              isScrolled
+                ? 'bg-blue-50 dark:bg-navy-900 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-800/50'
+                : 'bg-black/35 backdrop-blur-md text-cyan-300 border border-white/20 shadow-sm'
+            }`}>
               MIT AoE 2026–27
             </span>
 
-            {/* Mobile Menu Hamburger Button (Min 44x44px touch target) */}
+            {/* Mobile Menu Hamburger Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden w-11 h-11 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className={`xl:hidden w-11 h-11 flex items-center justify-center rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                isScrolled
+                  ? 'bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-200 hover:text-blue-600'
+                  : 'bg-black/35 backdrop-blur-md border border-white/20 text-white hover:text-cyan-400 shadow-sm'
+              }`}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -129,29 +151,30 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu (Mobile-first responsive drawer) */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-x-0 top-[65px] bg-white/95 dark:bg-navy-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-navy-800 shadow-xl max-h-[calc(100vh-70px)] overflow-y-auto animate-in slide-in-from-top-4 duration-200">
+        <div className="xl:hidden fixed inset-x-0 top-[68px] bg-navy-950/98 text-white backdrop-blur-xl border-b border-navy-800 shadow-2xl max-h-[calc(100vh-70px)] overflow-y-auto animate-in slide-in-from-top-4 duration-200">
           <div className="px-5 py-6 space-y-2">
-            <div className="pb-3 mb-2 border-b border-slate-200 dark:border-navy-800">
-              <span className="text-xs uppercase tracking-wider text-slate-400 dark:text-slate-400 font-semibold">
+            <div className="pb-3 mb-2 border-b border-navy-800 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-wider text-cyan-400 font-semibold">
                 Project Sections
               </span>
+              <span className="text-xs text-slate-400">
+                SY B.Tech
+              </span>
             </div>
+
             {projectContent.header.navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMobileMenu}
-                className="flex items-center justify-between min-h-[44px] px-3 py-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-navy-900 hover:text-blue-600 dark:hover:text-cyan-400 font-medium text-sm transition-colors"
+                className="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 transition-colors text-sm font-medium text-slate-200 hover:text-cyan-300"
               >
                 <span>{link.label}</span>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
+                <ChevronRight className="w-4 h-4 text-slate-500" />
               </a>
             ))}
-            <div className="pt-4 border-t border-slate-200 dark:border-navy-800 text-xs text-slate-500 dark:text-slate-400">
-              Chemical Prototyping • MIT Academy of Engineering
-            </div>
           </div>
         </div>
       )}

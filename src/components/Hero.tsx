@@ -7,24 +7,30 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#060e1a] text-white pt-24 pb-16"
+      className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#060e1a] text-white pt-28 sm:pt-32 pb-20"
     >
-      {/* Background Group Photo - Prominently visible with dark atmospheric overlay (Like inkcraft-studio reference) */}
+      {/* Background Group Photo - Clear, bright and visible with balanced gradient overlays (Like inkcraft-studio reference) */}
       <div className="absolute inset-0 z-0 select-none overflow-hidden" aria-hidden="true">
         <img
           src="/images/team-group.jpg"
           alt="Chemix Student Formulation Team"
-          className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.42] contrast-105 scale-100 sm:scale-105"
+          className="w-full h-full object-cover object-[center_15%] filter brightness-[0.75] contrast-[1.08] saturate-[1.05] scale-100 sm:scale-102 transition-transform duration-700"
         />
-        {/* Layered cinematic gradients to guarantee perfect text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060e1a] via-[#060e1a]/60 to-[#060e1a]/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(6,14,26,0.85)_100%)]" />
+        {/* Top subtle scrim for top navigation bar */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#060e1a]/80 via-[#060e1a]/30 to-transparent" />
+        
+        {/* Soft center atmospheric tint */}
+        <div className="absolute inset-0 bg-[#060e1a]/25 backdrop-blur-[0.5px]" />
+        
+        {/* Bottom dark gradient to ensure text & CTA legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060e1a] via-[#060e1a]/75 via-50% to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,14,26,0.3)_0%,_rgba(6,14,26,0.7)_100%)]" />
 
-        {/* Ambient cyan reference dots */}
-        <div className="absolute top-1/4 left-1/6 w-2 h-2 rounded-full bg-cyan-400/70 blur-[0.5px]" />
-        <div className="absolute top-1/3 right-1/5 w-2 h-2 rounded-full bg-cyan-400/60 blur-[0.5px]" />
-        <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 rounded-full bg-cyan-400/50 blur-[0.5px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-2.5 h-2.5 rounded-full bg-blue-400/60 blur-[0.5px]" />
+        {/* Ambient decorative cyan light accents */}
+        <div className="absolute top-1/4 left-1/6 w-2.5 h-2.5 rounded-full bg-cyan-400/80 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
+        <div className="absolute top-1/3 right-1/5 w-2 h-2 rounded-full bg-cyan-300/70 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
+        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 rounded-full bg-cyan-400/60 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
+        <div className="absolute bottom-1/4 right-1/4 w-3 h-3 rounded-full bg-blue-400/70 shadow-[0_0_14px_rgba(96,165,250,0.8)]" />
       </div>
 
       {/* Foreground Centered Content */}
@@ -48,9 +54,9 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="space-y-1 sm:space-y-2"
         >
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.12]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
             Chemical Prototyping &amp;
-            <span className="block mt-1 sm:mt-2 text-cyan-400 font-serif">
+            <span className="block mt-1 sm:mt-2 text-cyan-400 font-serif drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Preparation of Liquid Detergent
             </span>
           </h1>
@@ -61,7 +67,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto"
+          className="text-sm sm:text-base md:text-lg text-slate-200 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
         >
           A comprehensive laboratory study of liquid detergent formulation using SLS, NaOH, castor oil, EDTA, glycerol, and copper sulfate through systematic chemical unit operations.
         </motion.p>
