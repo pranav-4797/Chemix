@@ -1,4 +1,6 @@
+import React from 'react';
 import { Award, Compass, CheckSquare2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 export const ConclusionSection: React.FC = () => {
@@ -9,7 +11,13 @@ export const ConclusionSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <Award className="w-3.5 h-3.5" />
             <span>Outcomes &amp; Horizons</span>
@@ -20,10 +28,16 @@ export const ConclusionSection: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {conclusion.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Executive Conclusion Card */}
-        <div className="mb-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-blue-50/80 via-white to-slate-50 dark:from-navy-900 dark:via-navy-950 dark:to-[#081220] border border-blue-200/80 dark:border-navy-800 shadow-soft">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-blue-50/80 via-white to-slate-50 dark:from-navy-900 dark:via-navy-950 dark:to-[#081220] border border-blue-200/80 dark:border-navy-800 shadow-soft"
+        >
           <div className="max-w-4xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400">
               Executive Project Conclusion
@@ -36,7 +50,7 @@ export const ConclusionSection: React.FC = () => {
               <span>SY B.Tech Chemical Prototyping Experimental Milestone | Academic Year 2026–2027</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Future Scope Checklist Cards */}
         <div>
@@ -54,17 +68,21 @@ export const ConclusionSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {conclusion.futureScopeList.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="group p-5 rounded-2xl bg-slate-50 dark:bg-navy-900/60 border border-slate-200/80 dark:border-navy-800 hover:border-blue-300 dark:hover:border-cyan-800/80 hover:bg-white dark:hover:bg-navy-900 transition-all duration-200 shadow-xs flex items-start gap-3.5"
               >
-                <div className="w-7 h-7 rounded-lg bg-blue-100 dark:bg-navy-800 text-blue-600 dark:text-cyan-400 flex items-center justify-center shrink-0 font-mono font-bold text-xs mt-0.5 group-hover:scale-105 transition-transform">
+                <div className="w-6 h-6 rounded-lg bg-blue-100 dark:bg-navy-800 text-blue-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-mono group-hover:bg-blue-600 group-hover:text-white transition-colors">
                   0{idx + 1}
                 </div>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                <span className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                   {item}
-                </p>
-              </div>
+                </span>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -11,6 +11,7 @@ import {
   Check, 
   Layers
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 // Icon Map helper
@@ -33,7 +34,13 @@ export const ApparatusSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <Layers className="w-3.5 h-3.5" />
             <span>Equipment &amp; Hardware</span>
@@ -44,16 +51,20 @@ export const ApparatusSection: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {apparatus.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Apparatus Grid (8 cards) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {apparatus.items.map((item) => {
+          {apparatus.items.map((item, idx) => {
             const isRecommended = item.recommended;
 
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className={`group p-6 rounded-2xl bg-white dark:bg-navy-900 border transition-all duration-300 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 relative flex flex-col justify-between ${
                   isRecommended 
                     ? 'border-cyan-300 dark:border-cyan-800/80 ring-1 ring-cyan-400/20' 
@@ -86,7 +97,7 @@ export const ApparatusSection: React.FC = () => {
                   <span>Chemical Lab Spec</span>
                   <Check className="w-3.5 h-3.5 text-blue-500 dark:text-cyan-400" />
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

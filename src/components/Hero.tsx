@@ -1,4 +1,6 @@
-import { Play, ArrowRight, Gauge, Sparkles, Award } from 'lucide-react';
+import React from 'react';
+import { Play, ArrowRight, Gauge, Sparkles, Award, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 export const Hero: React.FC = () => {
@@ -21,11 +23,31 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Top pill badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-cyan-300 text-xs sm:text-sm font-semibold shadow-xs">
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
-              <span>{hero.supertitle}</span>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-6 text-left"
+          >
+            {/* Top pill badges */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-cyan-300 text-xs sm:text-sm font-semibold shadow-xs">
+                <Sparkles className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                <span>{hero.supertitle}</span>
+              </div>
+
+              <a
+                href="#team"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 dark:bg-navy-900/80 hover:bg-blue-50 dark:hover:bg-navy-800 border border-slate-200 dark:border-navy-700 text-slate-700 dark:text-slate-200 text-xs font-medium transition-colors shadow-2xs group"
+              >
+                <img
+                  src="/images/team-group.jpg"
+                  alt="Student Team"
+                  className="w-4 h-4 rounded-full object-cover group-hover:scale-110 transition-transform"
+                />
+                <span>SY B.Tech Team</span>
+                <Users className="w-3.5 h-3.5 text-blue-500" />
+              </a>
             </div>
 
             {/* Main Title */}
@@ -47,11 +69,11 @@ export const Hero: React.FC = () => {
             {/* CTA Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <a
-                href={hero.secondaryCta.href}
+                href="#process-video-view"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm sm:text-base shadow-soft-lg hover:shadow-glow transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[44px]"
               >
                 <Play className="w-4 h-4 fill-white group-hover:scale-110 transition-transform" />
-                <span>{hero.secondaryCta.text}</span>
+                <span>Watch Process Video</span>
               </a>
 
               <a
@@ -61,12 +83,20 @@ export const Hero: React.FC = () => {
                 <span>{hero.primaryCta.text}</span>
                 <ArrowRight className="w-4 h-4 text-blue-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform" />
               </a>
+
+              <a
+                href="#quiz"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-cyan-50 dark:bg-navy-900 hover:bg-cyan-100 dark:hover:bg-navy-800 text-blue-700 dark:text-cyan-300 font-semibold text-sm border border-cyan-200 dark:border-cyan-800/60 shadow-xs transition-all duration-200 min-h-[44px]"
+              >
+                <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                <span>Take Lab Quiz</span>
+              </a>
             </div>
 
             {/* Quick Stat Chips */}
             <div className="pt-4 grid grid-cols-3 gap-3 sm:gap-4">
               {hero.quickStats.map((st, i) => (
-                <div key={i} className="p-3 rounded-xl bg-white/60 dark:bg-navy-900/50 border border-slate-200/70 dark:border-navy-800 backdrop-blur-xs">
+                <div key={i} className="p-3 rounded-xl bg-white/60 dark:bg-navy-900/50 border border-slate-200/70 dark:border-navy-800 backdrop-blur-xs hover:border-blue-300 dark:hover:border-cyan-800 transition-colors">
                   <div className="text-lg sm:text-xl font-display font-bold text-blue-600 dark:text-cyan-400">
                     {st.value}
                   </div>
@@ -80,10 +110,15 @@ export const Hero: React.FC = () => {
               ))}
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column: Hero Visual - Figure 5.1 Photo */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Hero Visual - Photo */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Outer decorative ring */}
@@ -144,7 +179,7 @@ export const Hero: React.FC = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

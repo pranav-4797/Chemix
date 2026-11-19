@@ -4,6 +4,23 @@
 // All project text and data are centralized here for quick and easy editing.
 // ============================================================================
 
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  topicBadge: string;
+}
+
+export interface TeamGroupPhoto {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  location: string;
+}
+
 export interface TeamMember {
   name: string;
   prn?: string;
@@ -99,6 +116,7 @@ export const projectContent = {
       { label: "Observations", href: "#observations" },
       { label: "Safety", href: "#safety" },
       { label: "Video", href: "#video" },
+      { label: "Quiz", href: "#quiz" },
     ]
   },
 
@@ -160,6 +178,13 @@ export const projectContent = {
   team: {
     sectionTitle: "Project Team",
     subtitle: "SY B.Tech Students | Subject: Chemical Prototyping",
+    groupPhoto: {
+      src: "/images/team-group.jpg",
+      alt: "Chemix Project Team — SY B.Tech, MIT Academy of Engineering",
+      title: "Student Project Innovators",
+      caption: "Chemix team at MIT Academy of Engineering campus, Alandi (D), Pune.",
+      location: "School of Chemical Engineering / Campus Quad, MIT AoE"
+    },
     members: [
       {
         name: "Pranav Chopade",
@@ -381,48 +406,48 @@ export const projectContent = {
         id: "surfactant-action",
         title: "Surfactant Action & Micelle Formation",
         subtitle: "Interfacial tension reduction and soil dispersion",
-        summary: "SLS is an anionic surfactant possessing an amphiphilic architecture with a polar hydrophilic sulfate head and a non-polar hydrophobic hydrocarbon tail.",
+        summary: "SLS possesses an amphiphilic architecture: a hydrophilic sulfate head and a lipophilic hydrocarbon tail that synergistically remove oily dirt.",
         points: [
-          "Lowers the interfacial tension between water and hydrophobic dirt/oil matrices.",
-          "Self-assembles into spherical micelles once the Critical Micelle Concentration (CMC) is exceeded.",
-          "Hydrophobic cores encapsulate oily soil while charged outer heads disperse into the bulk aqueous phase for rinseability.",
-          "Detergent performance is directly controlled by surfactant concentration, temperature, and electrolyte compatibility."
+          "Lowers interfacial surface tension between aqueous wash liquor and hydrophobic oily soils.",
+          "Self-assembles into spherical micelles once Critical Micelle Concentration (CMC) is reached.",
+          "Lipophilic cores trap greasy soil while hydrophilic heads keep particles suspended for clean rinsing.",
+          "Performance is governed by surfactant concentration, thermal history, and electrolyte balance."
         ]
       },
       {
         id: "builders-chelants",
         title: "Builders & Chelating Agents",
         subtitle: "Alkalinity regulation and polyvalent ion sequestration",
-        summary: "Detergent builders like Sodium Carbonate (Na₂CO₃) and chelating agents like EDTA synergistically condition the wash liquor.",
+        summary: "Sodium carbonate (Na₂CO₃) and EDTA condition the wash water to maximize surfactant cleaning potential.",
         points: [
-          "Na₂CO₃ supplies necessary reserve alkalinity to assist in saponifying free fatty acids and neutralizing acidic soil.",
-          "EDTA forms stable hexadentate chelation complexes with divalent hard water ions (Ca²⁺ and Mg²⁺).",
-          "Eliminates competitive ionic interference that would otherwise deactivate anionic surfactants and precipitate curd.",
-          "Proper stoichiometric balancing prevents excessive ionic strength that could destabilize the colloidal suspension."
+          "Na₂CO₃ supplies reserve alkalinity to neutralize acidic dirt and saponify free fatty acids.",
+          "EDTA forms stable hexadentate complexes with hard water ions (Ca²⁺, Mg²⁺).",
+          "Prevents insoluble calcium curd/scum precipitation that would otherwise deactivate SLS.",
+          "Proper stoichiometry avoids excessive ionic strength that could destabilize the colloidal suspension."
         ]
       },
       {
         id: "ph-compatibility",
         title: "pH Control & Compatibility",
         subtitle: "Thermodynamic stability and skin contact hazard considerations",
-        summary: "Chemical compatibility dictates whether ingredients remain homogeneously solubilized or undergo precipitation and phase inversion.",
+        summary: "Chemical compatibility dictates whether ingredients remain transparently dissolved or separate into cloudy phases.",
         points: [
-          "NaOH is highly corrosive and exothermically reactive; addition must be strictly supervised and neutralized if used.",
-          "Concentration, temperature, and addition sequence govern whether clear isotropic solutions or turbid gels form.",
-          "Inorganic salts (MgCl₂ / NaCl) shift the electrostatic double layer, tuning micelle aggregation and fluid viscosity.",
-          "Fatty phases (Stearic acid, Castor oil) necessitate specific pH and thermal windows to solubilize without separate oil phase stratification."
+          "NaOH is strongly caustic; precise addition is required to regulate saponification without skin hazards.",
+          "Reagent order, temperature, and ionic strength dictate isotropic clarity vs turbid phase separation.",
+          "Electrolyte salts (CuSO₄, NaCl) modulate micelle repulsion, tuning solution viscosity.",
+          "Lipid phases (Castor oil, Stearic acid) require strict thermal and alkaline windows for uniform dispersion."
         ]
       },
       {
         id: "mixing-heating",
         title: "Agitation Kinetics & Heat Transfer",
         subtitle: "Hydrodynamic shear and controlled thermal dissolution",
-        summary: "Agitation accelerates dissolution kinetics by minimizing stagnant boundary layers surrounding solid solutes.",
+        summary: "Continuous stirring accelerates dissolution kinetics by reducing stagnant boundary layers around solid reagents.",
         points: [
-          "The laboratory magnetic stirrer displayed approximately 970 RPM at the photographed stage.",
-          "970 RPM is a documented real-time observational setting, not an optimized commercial operating parameter.",
-          "Vigorous shearing can entrap unwanted air and induce persistent micro-foam; addition order must be gentle.",
-          "Controlled heating accelerates dissolution of high-melting-point solids (e.g. stearic acid) but must never exceed evaporation safety limits."
+          "Magnetic stirrer recorded approximately 970 RPM, providing stable vortex mixing without splashing.",
+          "Gentle addition sequence prevents air entrainment and persistent excess micro-foam.",
+          "Controlled thermal assistance facilitates dissolution of solid precursors without boiling.",
+          "Operating parameters recorded represent verified bench settings for this laboratory run."
         ]
       }
     ]
@@ -433,50 +458,51 @@ export const projectContent = {
     subtitle: "Laboratory batch procedure, unit operations, and process-flow architecture",
     diagramImage: "/images/img-1.svg",
     diagramAlt: "Process Flow Diagram showing sequential stages from raw materials to final collection",
+    processVideo: "/video/process-video.mp4",
     flowStages: [
       "Raw Materials & Water",
       "Controlled Mixing (970 RPM)",
       "Heating (If Required)",
-      "Cooling & Filtration (If Required)",
+      "Cooling & Filtration",
       "Collection & Labelling"
     ],
     steps: [
       {
         stepNumber: 1,
-        title: "Preparation & Safety Check",
-        shortDesc: "PPE inspection, workstation clearance, and glassware setup",
-        fullDesc: "Don approved personal protective equipment including laboratory coat, splash goggles, and chemical-resistant nitrile gloves. Thoroughly inspect all borosilicate beakers and stirrer bars for cleanliness and micro-cracks. Clear the work area, review chemical safety cards, and measure distilled water into the primary reaction beaker.",
-        keyAction: "Set up magnetic hotplate, inspect PPE, and tare balance"
+        title: "Preparation & Safety Setup",
+        shortDesc: "PPE check, workstation clearing, and tare balance setup",
+        fullDesc: "Don splash goggles, lab coat, and nitrile gloves. Inspect glassware for micro-cracks, clear workspace, review chemical safety protocols, and measure distilled water into the reaction beaker.",
+        keyAction: "Equip PPE, tare analytical balance, and set up magnetic hotplate"
       },
       {
         stepNumber: 2,
-        title: "Controlled Mixing & Agitation",
-        shortDesc: "Gradual reagent addition under continuous magnetic stirring (~970 RPM)",
-        fullDesc: "Add instructor-approved chemical reagents in designated sequence slowly to the vortex. Maintain magnetic agitation (observed at ~970 RPM) to facilitate dispersion while minimizing air entrainment and severe foam generation. Observe colour change to vibrant blue and ensure solid dissolution.",
+        title: "Controlled Reagent Mixing",
+        shortDesc: "Gradual stoichiometric addition under vortex stirring (~970 RPM)",
+        fullDesc: "Sequentially introduce SLS, NaOH, castor oil, and EDTA into the vortex. Maintain magnetic agitation at ~970 RPM to ensure uniform dispersion and avoid excessive aeration.",
         rpm: "~970 RPM",
-        keyAction: "Gradual addition to limit foam; continuous observation"
+        keyAction: "Gentle sequential dosing to limit foam and facilitate dissolution"
       },
       {
         stepNumber: 3,
-        title: "Thermal Treatment (If Dictated)",
-        shortDesc: "Controlled heat-assist for stubborn solids with continuous monitoring",
-        fullDesc: "If the specific formulation manual calls for heat to dissolve solid fatty acids or builders, apply gentle, regulated heat through the hotplate. Continuously monitor with an immersed thermometer. Never heat a sealed container and never leave the apparatus unattended.",
-        caution: "Never heat in closed containers; avoid boiling or dry evaporation",
-        keyAction: "Controlled heat assist; record duration and temperature"
+        title: "Controlled Thermal Assist",
+        shortDesc: "Gentle heat regulation if dissolving fatty acids or builders",
+        fullDesc: "When required, apply mild thermal input via the hotplate with continuous temperature monitoring. Never heat sealed vessels and avoid boiling.",
+        caution: "Vented glassware only; do not boil or heat unattended",
+        keyAction: "Maintain controlled heat profile with thermometer verification"
       },
       {
         stepNumber: 4,
-        title: "Cooling & Conditional Filtration",
-        shortDesc: "Thermal stabilization to ambient temperature and particulate separation",
-        fullDesc: "Allow the stirred liquid detergent prototype to cool naturally to ambient room conditions. If undissolved matter remains and filtration is sanctioned in the lab procedure, gravity-filter the mixture through a clean conical funnel with appropriate filter paper.",
-        keyAction: "Equilibrate to room temperature; inspect optical clarity"
+        title: "Stabilization & Filtration",
+        shortDesc: "Ambient cooling and gravity filtration for clarity",
+        fullDesc: "Allow the formulation to equilibrate to room temperature. Pass through qualitative filter medium if undissolved micro-particles remain.",
+        keyAction: "Cool to ambient room conditions and assess optical clarity"
       },
       {
         stepNumber: 5,
-        title: "Collection, Labelling & Data Entry",
-        shortDesc: "Transfer to dedicated laboratory sample bottle and parameter logging",
-        fullDesc: "Transfer an aliquot into a dedicated sample container for visual inspection. Affix a chemical label detailing formulation date, team identifier, and hazard cautions. Record physical observations including blue colour intensity, transparency, and note missing parameters for follow-up testing.",
-        keyAction: "Seal container, apply hazard label, and record observations"
+        title: "Sample Collection & Labelling",
+        shortDesc: "Aliquoting into prototype bottle and parameter logging",
+        fullDesc: "Transfer aliquots into chemical-resistant sample bottles. Affix hazard symbols, batch date, and student team tags, logging color, clarity, and physical appearance.",
+        keyAction: "Seal container, affix GHS hazard label, and log notebook data"
       }
     ]
   },
@@ -693,12 +719,99 @@ export const projectContent = {
   },
 
   video: {
-    sectionTitle: "Liquid Detergent Prototype | Minor Project Report",
-    subtitle: "Laboratory demonstration and project presentation recorded at MIT Academy of Engineering",
+    sectionTitle: "Laboratory Video Documentation",
+    subtitle: "Real-time process execution and project presentation recorded at MIT Academy of Engineering",
+    processVideoUrl: "/video/process-video.mp4",
+    presentationVideoUrl: "/video/liquid-detergent-prototype.mp4",
     driveUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/view?usp=sharing",
     driveEmbedUrl: "https://drive.google.com/file/d/1Ggo0yIQx5cBjQ0EfpUiWHAe_Lsfva8Q3/preview",
-    localVideoUrl: "/video/liquid-detergent-prototype.mp4",
-    caption: "Laboratory presentation and prototype recording for the Chemical Prototyping course, MIT Academy of Engineering."
+    caption: "Laboratory process execution and prototype documentation for the Chemical Prototyping course, MIT Academy of Engineering."
+  },
+
+  quiz: {
+    sectionTitle: "Laboratory Prototyping Quiz",
+    subtitle: "Test your understanding of formulation chemistry, agitation kinetics, and safety protocols",
+    description: "Challenge your mastery of surfactant kinetics, stoichiometric calculations, and laboratory observations from this experiment.",
+    questions: [
+      {
+        id: 1,
+        question: "What is the primary thermodynamic mechanism of Sodium Lauryl Sulfate (SLS) in this liquid detergent prototype?",
+        options: [
+          "Increases bulk solution density without modifying interfacial surface tension",
+          "Lowers water-oil interfacial tension and self-assembles into soil-encapsulating micelles",
+          "Acts as an acidic neutralizer to prevent caustic burns from alkalis",
+          "Provides inorganic blue coloration via transition metal d-orbital splitting"
+        ],
+        correctIndex: 1,
+        explanation: "SLS is an amphiphilic anionic surfactant. Its hydrophilic sulfate head and lipophilic tail lower interfacial tension and assemble into spherical micelles above the CMC to encapsulate oily dirt.",
+        topicBadge: "Surfactant Chemistry"
+      },
+      {
+        id: 2,
+        question: "What operational agitation speed was recorded on the REMI magnetic stirrer digital tachometer during mixing?",
+        options: [
+          "~350 RPM",
+          "~1800 RPM",
+          "~970 RPM",
+          "~5000 RPM"
+        ],
+        correctIndex: 2,
+        explanation: "The digital tachometer on the REMI 2MLH magnetic hotplate stirrer displayed approximately 970 RPM during the photographed agitation phase, creating a stable mixing vortex.",
+        topicBadge: "Agitation Kinetics"
+      },
+      {
+        id: 3,
+        question: "Which chemical reagent gave the prototype its characteristic deep blue color observed in the reaction beaker?",
+        options: [
+          "Copper(II) Sulfate (CuSO₄ · 5H₂O)",
+          "Methylene Blue synthetic organic dye",
+          "Saponified Castor Oil lipid complex",
+          "Concentrated Sodium Hydroxide (NaOH)"
+        ],
+        correctIndex: 0,
+        explanation: "As documented in Lab Notebook Table 6.1, 2 gm of Copper(II) Sulfate (CuSO₄) was introduced as an inorganic transition metal salt, yielding the signature blue aqueous solution.",
+        topicBadge: "Colorant & Salts"
+      },
+      {
+        id: 4,
+        question: "Why does Sodium Hydroxide (NaOH) require strict PPE (splash goggles, nitrile gloves, lab coat) during handling?",
+        options: [
+          "It demagnetizes the magnetic stirrer bar inside the beaker",
+          "It releases toxic chlorine gas immediately upon contact with ambient air",
+          "It is a caustic strong base causing severe chemical burns and corneal tissue damage",
+          "It is a volatile flammable liquid prone to flash combustion"
+        ],
+        correctIndex: 2,
+        explanation: "NaOH is a strongly alkaline, corrosive solid with an exothermic heat of solution. Contact with skin or eyes rapidly hydrolyzes proteins and saponifies cell lipids; full PPE is mandatory.",
+        topicBadge: "Chemical Safety"
+      },
+      {
+        id: 5,
+        question: "What is the key role of EDTA in the liquid detergent prototype formulation?",
+        options: [
+          "Chelates divalent hard water ions (Ca²⁺ and Mg²⁺) to preserve surfactant foaming power",
+          "Acts as a thickening associative polymer to achieve high commercial gel viscosity",
+          "Serves as an artificial scent carrier and botanical fragrance stabilizer",
+          "Provides chemical bleaching power through active peroxygen release"
+        ],
+        correctIndex: 0,
+        explanation: "EDTA acts as a hexadentate chelating ligand that sequesters polyvalent calcium and magnesium cations in tap water, preventing the formation of insoluble calcium scum and protecting lather.",
+        topicBadge: "Builders & Chelants"
+      },
+      {
+        id: 6,
+        question: "According to Lab Notebook Table 6.1, what was the total liquid volume scale of the initial laboratory batch?",
+        options: [
+          "~500 mL (Pilot scale)",
+          "~33 mL (20 mL Water + 5 mL Oil + 5 mL Glycerol + 3 mL EDTA)",
+          "~2.5 Litres (Semi-industrial run)",
+          "~10 mL (Micro-pipette scale)"
+        ],
+        correctIndex: 1,
+        explanation: "The measured laboratory run comprised 20 mL distilled water, 5 mL castor oil, 5 mL glycerol, and 3 mL EDTA liquid components, yielding ~33 mL total liquid volume alongside 6g total dry reagents.",
+        topicBadge: "Batch Formulation"
+      }
+    ]
   },
 
   references: {

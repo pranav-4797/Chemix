@@ -12,6 +12,7 @@ import { ObservationsSection } from './components/ObservationsSection';
 import { DiscussionSection } from './components/DiscussionSection';
 import { SafetySection } from './components/SafetySection';
 import { ConclusionSection } from './components/ConclusionSection';
+import { QuizSection } from './components/QuizSection';
 import { VideoSection } from './components/VideoSection';
 import { ReferencesSection } from './components/ReferencesSection';
 import { Footer } from './components/Footer';
@@ -81,14 +82,17 @@ export const App: React.FC = () => {
         {/* 12. CONCLUSION AND FUTURE SCOPE */}
         <ConclusionSection />
 
-        {/* 13. VIDEO */}
+        {/* 13. EXPERIMENT QUIZ */}
+        <QuizSection />
+
+        {/* 14. VIDEO */}
         <VideoSection />
 
-        {/* 14. REFERENCES */}
+        {/* 15. REFERENCES */}
         <ReferencesSection />
       </main>
 
-      {/* 15. FOOTER */}
+      {/* 16. FOOTER */}
       <Footer />
     </div>
   );

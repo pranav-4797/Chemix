@@ -6,6 +6,7 @@ import {
   ChevronUp, 
   Info
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 export const IngredientsSection: React.FC = () => {
@@ -37,7 +38,13 @@ export const IngredientsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <Atom className="w-3.5 h-3.5" />
             <span>Chemical Formulation</span>
@@ -48,10 +55,16 @@ export const IngredientsSection: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {ingredients.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Essential Info Note Box */}
-        <div className="max-w-4xl mx-auto mb-10 p-4 sm:p-5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 flex items-start gap-3.5 shadow-xs">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mb-10 p-4 sm:p-5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 flex items-start gap-3.5 shadow-xs"
+        >
           <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-amber-900 dark:text-amber-200/90 leading-relaxed">
             <strong className="font-semibold block sm:inline text-amber-950 dark:text-amber-200 mr-1">
@@ -59,7 +72,7 @@ export const IngredientsSection: React.FC = () => {
             </strong>
             {ingredients.infoNote}
           </div>
-        </div>
+        </motion.div>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
@@ -80,13 +93,17 @@ export const IngredientsSection: React.FC = () => {
 
         {/* Ingredients Grid (9 Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => {
+          {filteredItems.map((item, idx) => {
             const isExpanded = expandedCard === item.id;
             const hasWarning = !!item.safetyWarning;
 
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className={`group rounded-2xl bg-slate-50 dark:bg-navy-900 border transition-all duration-300 shadow-soft hover:shadow-soft-lg flex flex-col justify-between ${
                   hasWarning 
                     ? 'border-red-300 dark:border-red-900/60 bg-red-50/20 dark:bg-navy-900' 
@@ -121,16 +138,8 @@ export const IngredientsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Warning Badge for Corrosive NaOH */}
-                  {hasWarning && (
-                    <div className="mb-3 p-2.5 rounded-xl bg-red-100/80 dark:bg-red-950/50 border border-red-200 dark:border-red-800/60 flex items-start gap-2 text-xs text-red-700 dark:text-red-300 font-medium">
-                      <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-                      <span>{item.safetyWarning}</span>
-                    </div>
-                  )}
-
-                  {/* Primary Role Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  {/* Role Description */}
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
                     {item.role}
                   </p>
 
@@ -146,33 +155,42 @@ export const IngredientsSection: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Expanded Technical Note */}
+                  {/* Safety Warning Badge (e.g. for NaOH) */}
+                  {item.safetyWarning && (
+                    <div className="mb-4 p-3 rounded-xl bg-red-100/80 dark:bg-red-950/50 border border-red-200 dark:border-red-900 text-red-800 dark:text-red-200 flex items-start gap-2 text-xs">
+                      <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                      <span className="font-medium leading-tight">
+                        {item.safetyWarning}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Expandable Technical Specification */}
                   {isExpanded && (
-                    <div className="pt-3 border-t border-slate-200 dark:border-navy-800 text-xs text-slate-500 dark:text-slate-400 space-y-1 animate-in fade-in duration-200">
+                    <div className="pt-3 border-t border-slate-200/80 dark:border-navy-800 space-y-1.5 text-xs">
                       <div className="font-semibold text-slate-700 dark:text-slate-300">
                         Lab Verification Status:
                       </div>
-                      <p>{item.statusNotes}</p>
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        {item.statusNotes}
+                      </p>
                     </div>
                   )}
                 </div>
 
-                {/* Footer Action to expand/collapse */}
-                <div className="px-6 py-3 bg-white/60 dark:bg-navy-950/60 border-t border-slate-200/60 dark:border-navy-800/80 rounded-b-2xl flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-mono">
-                    ID: {item.id}
-                  </span>
+                {/* Flip / Expand Button */}
+                <div className="px-5 pb-4 pt-1">
                   <button
                     type="button"
                     onClick={() => toggleCard(item.id)}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-cyan-400 hover:underline min-h-[36px] px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                    className="w-full py-2.5 px-3 rounded-xl bg-white dark:bg-navy-950 hover:bg-blue-50 dark:hover:bg-navy-800 text-blue-600 dark:text-cyan-400 border border-slate-200/90 dark:border-navy-800 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors min-h-[44px]"
                     aria-expanded={isExpanded}
                   >
-                    <span>{isExpanded ? 'Less Details' : 'Chemical Notes'}</span>
-                    {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    <span>{isExpanded ? 'Hide Technical Details' : 'View Chemical Specs'}</span>
+                    {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

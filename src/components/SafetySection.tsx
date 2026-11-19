@@ -9,6 +9,7 @@ import {
   HeartPulse, 
   ShieldCheck 
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 // Icon Map helper for safety
@@ -30,7 +31,13 @@ export const SafetySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/60 border border-red-200 dark:border-red-900/60 text-red-700 dark:text-red-400 text-xs font-semibold uppercase tracking-wider">
             <ShieldAlert className="w-3.5 h-3.5" />
             <span>Hazard Prevention &amp; Protocol</span>
@@ -41,16 +48,20 @@ export const SafetySection: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {safety.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Safety Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {safety.rules.map((rule) => {
+          {safety.rules.map((rule, idx) => {
             const isDanger = rule.severity === 'danger';
 
             return (
-              <div
+              <motion.div
                 key={rule.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className={`p-6 rounded-2xl border transition-all duration-300 shadow-soft hover:shadow-soft-lg flex flex-col justify-between ${
                   isDanger
                     ? 'bg-red-50/40 dark:bg-red-950/20 border-red-200 dark:border-red-900/60'
@@ -89,13 +100,19 @@ export const SafetySection: React.FC = () => {
                   <ShieldCheck className="w-3.5 h-3.5 text-blue-500 dark:text-cyan-400" />
                   <span>Institutional Chemical Lab Mandate</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Emergency Eye Wash / Shower Callout Box */}
-        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white shadow-soft-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white shadow-soft-lg flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center shrink-0">
               <HeartPulse className="w-7 h-7 text-white" />
@@ -112,7 +129,7 @@ export const SafetySection: React.FC = () => {
           <span className="shrink-0 px-4 py-2 rounded-xl bg-white text-red-700 font-bold text-xs uppercase tracking-wider shadow">
             SOS Protocol
           </span>
-        </div>
+        </motion.div>
 
       </div>
     </section>

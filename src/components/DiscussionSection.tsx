@@ -1,4 +1,6 @@
+import React from 'react';
 import { MessageSquare, AlertOctagon, ShieldX } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { projectContent } from '../data/content';
 
 export const DiscussionSection: React.FC = () => {
@@ -9,7 +11,13 @@ export const DiscussionSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-navy-900 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Academic Analysis</span>
@@ -20,7 +28,7 @@ export const DiscussionSection: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {discussion.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
@@ -31,8 +39,12 @@ export const DiscussionSection: React.FC = () => {
             </h3>
 
             {discussion.discussionPoints.map((point, idx) => (
-              <div 
+              <motion.div 
                 key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className="p-5 rounded-2xl bg-slate-50 dark:bg-navy-900/60 border border-slate-200/90 dark:border-navy-800 shadow-xs"
               >
                 <div className="flex items-start gap-3.5">
@@ -43,20 +55,32 @@ export const DiscussionSection: React.FC = () => {
                     {point}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
 
             {/* Crucial Usage Caveat Banner */}
-            <div className="p-5 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 flex items-start gap-3.5 text-red-800 dark:text-red-200 text-xs sm:text-sm leading-relaxed">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="p-5 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 flex items-start gap-3.5 text-red-800 dark:text-red-200 text-xs sm:text-sm leading-relaxed"
+            >
               <ShieldX className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
               <div>
                 <strong>Safety Disclaimer:</strong> Do not use this prototype on human skin, culinary dishes, clothing textiles, or domestic surfaces until exact composition, pH stability, and intended purpose are professionally certified.
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Limitations Card (Right Column) */}
-          <div className="lg:col-span-5">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-5"
+          >
             <div className="p-6 sm:p-8 rounded-3xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 shadow-soft space-y-4">
               <div className="flex items-center gap-2.5 text-amber-800 dark:text-amber-300">
                 <AlertOctagon className="w-6 h-6 shrink-0 text-amber-600 dark:text-amber-400" />
@@ -87,7 +111,7 @@ export const DiscussionSection: React.FC = () => {
                 *Requires consultation with Chemical Prototyping course faculty advisors.
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
